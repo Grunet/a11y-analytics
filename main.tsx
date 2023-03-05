@@ -7,7 +7,7 @@
 import { serve } from "https://deno.land/std@0.140.0/http/server.ts";
 import { h, renderSSR, Helmet } from "https://deno.land/x/nano_jsx@v0.0.36/mod.ts";
 
-function App({snippet}) {
+function App({codeBlock}) {
   return (
         <main>
           <h1>A11y Analytics</h1>
@@ -27,7 +27,7 @@ function App({snippet}) {
           <button id="copyButton" style="height: 4rem;">Copy Google Analytics Code Snippet to Clipboard</button>
           <pre>
             <code id="codeSnippet" tabindex="0" role="region" aria-label="Code Snippet" aria-description="for the Google Analytics Integration">
-              {snippet}
+              {codeBlock}
             </code>
           </pre>
           <p>This will start annotating user events in Google Analytics with attributes you can use to create the aforementioned segments.</p>
@@ -60,10 +60,12 @@ function App({snippet}) {
   );
 }
 
-const minifiedSnippet = '<script>function decorateGtagWithAccessibilityInformation(){const a={},c=window.gtag;window.gtag=function(t,s,r){const o={...r,...a};c(t,s,o)},n({mediaFeature:"prefers-reduced-motion",possibleValues:["no-preference","reduce"]}),n({mediaFeature:"prefers-color-scheme",possibleValues:["light","dark"]}),n({mediaFeature:"inverted-colors",possibleValues:["none","inverted"]}),n({mediaFeature:"forced-colors",possibleValues:["none","active"]}),function(){const t=setInterval(function(){const r=document.querySelector(":focus-visible");if(!r)return;const o=r.tagName.toUpperCase();o==="INPUT"||o==="TEXTAREA"||r.contentEditable!=="true"&&(a["uses-keyboard"]=!0,clearInterval(t))},500)}();function n({mediaFeature:e,possibleValues:t}){if(u({mediaFeature:e})===!1)return;const r=t.map(i=>({possibleValue:i,mediaQueryResult:window.matchMedia(`(${e}: ${i})`).matches})).find(({_:i,mediaQueryResult:d})=>d===!0);if(r===void 0){console.error(`Something went wrong. Is there a new ${e} allowed value not accounted for here?`);return}const o=r.possibleValue;a[e]=o}function u({mediaFeature:e}){return window.matchMedia(`not all and (${e}), (${e})`).matches?!0:(console.warning(`Your browser doesn\'t support ${e} yet`),!1)}}decorateGtagWithAccessibilityInformation();</script>';
+const minifiedSnippet = 'function decorateGtagWithAccessibilityInformation(){const a={},c=window.gtag;window.gtag=function(t,s,r){const o={...r,...a};c(t,s,o)},n({mediaFeature:"prefers-reduced-motion",possibleValues:["no-preference","reduce"]}),n({mediaFeature:"prefers-color-scheme",possibleValues:["light","dark"]}),n({mediaFeature:"inverted-colors",possibleValues:["none","inverted"]}),n({mediaFeature:"forced-colors",possibleValues:["none","active"]}),function(){const t=setInterval(function(){const r=document.querySelector(":focus-visible");if(!r)return;const o=r.tagName.toUpperCase();o==="INPUT"||o==="TEXTAREA"||r.contentEditable!=="true"&&(a["uses-keyboard"]=!0,clearInterval(t))},500)}();function n({mediaFeature:e,possibleValues:t}){if(u({mediaFeature:e})===!1)return;const r=t.map(i=>({possibleValue:i,mediaQueryResult:window.matchMedia(`(${e}: ${i})`).matches})).find(({_:i,mediaQueryResult:d})=>d===!0);if(r===void 0){console.error(`Something went wrong. Is there a new ${e} allowed value not accounted for here?`);return}const o=r.possibleValue;a[e]=o}function u({mediaFeature:e}){return window.matchMedia(`not all and (${e}), (${e})`).matches?!0:(console.warning(`Your browser doesn\'t support ${e} yet`),!1)}}decorateGtagWithAccessibilityInformation();';
+const codeBlock = `<script>${minifiedSnippet}</script>`;
 
 function handler(req) {
-  const app = renderSSR(<App snippet={minifiedSnippet}/>);
+
+  const app = renderSSR(<App codeBlock={codeBlock}/>);
   const { body } = Helmet.SSR(app)
 
   const html = `

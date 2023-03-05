@@ -1,8 +1,8 @@
 import * as esbuild from "https://deno.land/x/esbuild@v0.17.11/mod.js";
 
-// const outputDir = 
+const outputDir = "./dist/";
 
-await cleanDirectory("./dist/");
+await cleanDirectory(outputDir);
 
 const buffer = await Deno.readFile("analytics.js");
 
@@ -12,8 +12,9 @@ const result = await esbuild.transform(buffer, {
 
 console.log(result.code);
 
-await Deno.mkdir("./dist");
-await Deno.writeTextFile("./dist/analytics.min.js", result.code);
+await Deno.mkdir(outputDir);
+await Deno.writeTextFile(`${outputDir}analytics.min.js`, result.code);
+
 
 // Helper functions
 

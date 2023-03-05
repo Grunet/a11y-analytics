@@ -26,7 +26,7 @@ All application level dependencies in the code deployed to it have their version
 
 ### Signing of Commits
 
-Github Codespaces automatically signs commits for you when you use it. This along with the branch protection rule on `main` to require signed commits should prevent anyone masquerading as me and trying to slip in changes unnoticed.
+Github Codespaces automatically signs commits for you when you use it, if you've configured that in your account settings. This along with the branch protection rule on `main` to require signed commits should prevent anyone masquerading as me and trying to slip in changes unnoticed.
 
 ### Tamperment Detection
 

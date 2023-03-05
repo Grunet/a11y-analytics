@@ -27,3 +27,11 @@ All application level dependencies in the code deployed to it have their version
 ### Signing of Commits
 
 Github Codespaces automatically signs commits for you when you use it. This along with the branch protection rule on `main` to require signed commits should prevent anyone masquerading as me and trying to slip in changes unnoticed.
+
+### Tamperment Detection
+
+Currently Github doesn't seem to sign their dev container images, so it's not possible to detect if it's been tampered with (before or after starting a session). [I asked about this lack of container signing on Twitter](https://twitter.com/__grunet/status/1632395784942395393?s=20).
+
+### Surface Area for Vulnerabilities
+
+Debian images generally include many more Linux kernel packages than other slimmer alternatives (e.g. alpine or Chainguard ones), meaning they have a much larger surface area for vulnerabilities. Github Codespaces only seemed to offer it as an option, and it's unclear to me how to make a custom alternative that still functions with Codespaces.

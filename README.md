@@ -12,7 +12,9 @@ This repository is hooked up to a (manually created) Deno Deploy project. So eve
 
 #### Local Development
 
-The version of Deno used locally for building and processing source code into the final snippets is pinned.
+The version of all dependencies are pinned down to a patch version.
+
+The version of Deno used locally for building and processing source code into the final snippets is pinned down to a patch version.
 
 The version of Debian used as the base image for the dev container used in Github Codespaces is not pinned, to allow easy uptake of security patches. It's also in the stable release channel (buster) for Debian.
 
@@ -35,3 +37,9 @@ Currently Github doesn't seem to sign their dev container images, so it's not po
 ### Surface Area for Vulnerabilities
 
 Debian images generally include many more Linux kernel packages than other slimmer alternatives (e.g. alpine or Chainguard ones), meaning they have a much larger surface area for vulnerabilities. Github Codespaces only seemed to offer it as an option, and it's unclear to me how to make a custom alternative that still functions with Codespaces.
+
+### Automation and Clean Machines
+
+Creation of the snippet and its inclusion into the website are currently manual processes, vulnerable to modification by other malicious things running on the same system.
+
+The primary mitigation for this is to perform the processes on a clean machine, in this case a Github Codespace. It also helps that I'm the only contributor currently, as the mitigation is useless otherwise.

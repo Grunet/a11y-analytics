@@ -2,7 +2,21 @@
 
 See https://a11yanalytics.deno.dev/ for more information
 
-## Technical Notes
+## Build Pipeline
+
+To minify the source file and create a snippet to include on the website, go through the following steps
+
+1. Start a Github Codespace from a new branch
+2. Run the following command at the root of the repo
+```bash
+deno task build
+```
+3. When it asks you for run access, double check that the binary it's pointing to looks correct. The path to it should be "/home/vscode/.cache/esbuild/bin/@esbuild-linux-x64@X.Y.Z" where "X.Y.Z" is the version of esbuild in use.
+4. Accept through run access
+
+You should see the minified snippet out in the console, as well as showing up as a file under the `dist/` folder.
+
+## Deployment Pipeline
 
 This repository is hooked up to a (manually created) Deno Deploy project. So every merge to main will cause a redeploy of `main.tsx` and the https://a11yanalytics.deno.dev/ site
 

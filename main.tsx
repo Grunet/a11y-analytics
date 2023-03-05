@@ -27,7 +27,7 @@ function App({snippet}) {
           <button id="copyButton" style="height: 4rem;">Copy Google Analytics Code Snippet to Clipboard</button>
           <pre>
             <code id="codeSnippet" tabindex="0" role="region" aria-label="Code Snippet" aria-description="for the Google Analytics Integration">
-              ${snippet}
+              {snippet}
             </code>
           </pre>
           <p>This will start annotating user events in Google Analytics with attributes you can use to create the aforementioned segments.</p>

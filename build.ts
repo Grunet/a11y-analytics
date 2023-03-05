@@ -15,6 +15,8 @@ console.log(result.code);
 await Deno.mkdir(outputDir);
 await Deno.writeTextFile(`${outputDir}analytics.min.js`, result.code);
 
+Deno.exit();
+
 
 // Helper functions
 

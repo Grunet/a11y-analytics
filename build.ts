@@ -6,14 +6,19 @@ await cleanDirectory(outputDir);
 
 const buffer = await Deno.readFile("analytics.js");
 
-const result = await esbuild.transform(buffer, {
+const { code:minifiedCode } = await esbuild.transform(buffer, {
     minify: true,
 });
 
-console.log(result.code);
+console.log(minifiedCode);
 
 await Deno.mkdir(outputDir);
-await Deno.writeTextFile(`${outputDir}analytics.min.js`, result.code);
+await Deno.writeTextFile(`${outputDir}analytics.min.js`, minifiedCode);
+
+// Directly pasting the minified JS into main.tsx doesn't work because it runs into issues with not escaping backticks, single quotes, and double quotes
+// This takes the minified JS and adjusts it so that it can be pasted directly into a JS string defined with single quotes
+const minifiedCodeEscapedToWorkInsideOfSingleQuoteStringInJavascript = minifiedCode.replaceAll("'", "\\'");
+await Deno.writeTextFile(`${outputDir}escapedForSingleQuotes.txt`, minifiedCodeEscapedToWorkInsideOfSingleQuoteStringInJavascript);
 
 Deno.exit();
 

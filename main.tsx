@@ -35,7 +35,7 @@ function App() {
           </ul>
           <p>And let me know what you find afterwards! You can find me on any of the following platforms:</p>
           <ul>
-            <li><a href="https://github.com/Grunet">My Github Profile</a></li>
+            <li><a href="https://github.com/Grunet/a11yanalytics">Github Issues</a></li>
             <li><a href="https://twitter.com/__grunet">My Twitter Profile</a></li>
             <li><a href="https://www.reddit.com/user/__grunet">My Reddit Profile</a></li>
           </ul>

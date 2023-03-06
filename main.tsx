@@ -13,7 +13,7 @@ function App({codeBlock}) {
           <h1>Analytics for Accessibility</h1>
           <p>How your users experience your websites matters. That's why you use analytics to better understand their behaviors and improve their experiences.</p>
           <p>Traditionally, your disabled users have been excluded from this feedback loop, primarily due to privacy concerns.</p>
-          <p>However, there are several coarse segments you can use to help improve disabled user experiences, including</p>
+          <p>However, there are several coarse segments you can still use, including</p>
           <ul>
             <li>Whether or not they're a keyboard-dominant user</li>
             <li>Whether or not they prefer reduced motion in animations</li>

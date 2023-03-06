@@ -87,7 +87,7 @@ function handler(req) {
           gtag('config', 'G-1TB5S4JW40');
         </script>
         <script>
-        function decorateGtagWithAccessibilityInformation(){const a={},c=window.gtag;window.gtag=function(t,s,r){const o={...r,...a};c(t,s,o)},n({mediaFeature:"prefers-reduced-motion",possibleValues:["no-preference","reduce"]}),n({mediaFeature:"prefers-color-scheme",possibleValues:["light","dark"]}),n({mediaFeature:"inverted-colors",possibleValues:["none","inverted"]}),n({mediaFeature:"forced-colors",possibleValues:["none","active"]}),function(){const t=setInterval(function(){const r=document.querySelector(":focus-visible");if(!r)return;const o=r.tagName.toUpperCase();o==="INPUT"||o==="TEXTAREA"||r.contentEditable!=="true"&&(a["uses-keyboard"]=!0,clearInterval(t))},500)}();function n({mediaFeature:e,possibleValues:t}){if(u({mediaFeature:e})===!1)return;const r=t.map(i=>({possibleValue:i,mediaQueryResult:window.matchMedia(\`(\${e}: \${i})\`).matches})).find(({_:i,mediaQueryResult:d})=>d===!0);if(r===void 0){console.error(\`Something went wrong. Is there a new \${e} allowed value not accounted for here?\`);return}const o=r.possibleValue;a[e]=o}function u({mediaFeature:e}){return window.matchMedia(\`not all and (\${e}), (\${e})\`).matches?!0:(console.warning(\`Your browser doesn't support \${e} yet\`),!1)}}decorateGtagWithAccessibilityInformation();
+          ${minifiedSnippet}
         </script>
         <title>A11y Analytics</title>
         <meta name="description" content="An introduction to using analytics to improve on a website or web app's accessibility" >

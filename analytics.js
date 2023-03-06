@@ -100,7 +100,7 @@ function decorateGtagWithAccessibilityInformation() {
         ).matches;
       
         if (!isMediaFeatureSupportedByTheBrowser) {
-          console.warning(`Your browser doesn't support ${mediaFeature} yet`);
+          console.warn(`Your browser doesn't support ${mediaFeature} yet`);
       
           return false;
         }

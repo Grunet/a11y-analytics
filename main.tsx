@@ -48,7 +48,7 @@ function App({codeBlock}) {
           <p>This site is hosted on <a href="https://deno.com/deploy">Deno Deploy</a>, so they (and their subprocessors) most likely have access to your IP address, what browser you're using, its version, and what your operating system is. I don't know yet of any way to control that but <a href="https://www.reddit.com/r/Deno/comments/11id32r/deno_deploy_and_privacy_deep_dive/">I asked on Reddit about Deno Deploy's privacy posture</a>.</p>
           <p>The app code running on it is completely ignoring those pieces of PII.</p>
 
-          <p>This site uses client-side Google Analytics 4. I tried very hard (in an uphill battle) to anonymize all information sent to Google (via Google Tag Manager) and documented <a href="https://dev.to/grunet/how-to-maximize-user-privacy-when-using-google-analytics-4-4cd7">how I configured Google Analytics to be maximally privacy preserving in this article</a>.</p>
+          <p>This site uses client-side Google Analytics 4. I tried very hard (in an uphill battle) to anonymize all information sent to Google (via Google Tag Manager) and documented <a href="https://dev.to/grunet/how-to-maximize-user-privacy-when-using-google-analytics-4-4cd7">how I configured Google Analytics to be maximally privacy preserving in an article</a>.</p>
           <p>The short version is that all of Google's cross-site and cross-device user tracking mechanisms should be disabled, leaving only page views and anonymous custom events (that I specified) emitted from client-side Javascript as a data source for Google Analytics.</p>
 
           <p>I believe this is enough to not need a cookie notice. But if not, <a href="#contact-info">let me know via one of the above channels</a> and I will work to add one.</p>

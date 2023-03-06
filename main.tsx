@@ -10,9 +10,9 @@ import { h, renderSSR, Helmet } from "https://deno.land/x/nano_jsx@v0.0.36/mod.t
 function App({codeBlock}) {
   return (
         <main>
-          <h1>A11y Analytics</h1>
-          <p>How your users experience your websites matters. That's why you use analytics to better understand their behaviors and improve that experience.</p>
-          <p>Your disabled users traditionally have been excluded from this feedback loop, primarily due to privacy concerns.</p>
+          <h1>Analytics for Accessibility</h1>
+          <p>How your users experience your websites matters. That's why you use analytics to better understand their behaviors and improve their experiences.</p>
+          <p>Traditionally, your disabled users have been excluded from this feedback loop, primarily due to privacy concerns.</p>
           <p>However, there are a few coarse segments you can gain information about to help improve disabled user experiences, such as</p>
           <ul>
             <li>Whether or not they're a keyboard-dominant user</li>
@@ -30,7 +30,7 @@ function App({codeBlock}) {
               {codeBlock}
             </code>
           </pre>
-          <p>This will start annotating user events in Google Analytics with attributes you can use to create the aforementioned segments.</p>
+          <p>This will start annotating events in Google Analytics with accessibility-specific parameters. You can then use them to create the aforementioned segments.</p>
           <p>From there it's up to you, but to get you started here are some ideas</p>
           <ul>
             <li>Compare conversion rates between keyboard users and non-keyboard users </li>
@@ -90,7 +90,7 @@ function handler(req) {
         <script>
           ${minifiedSnippet}
         </script>
-        <title>A11y Analytics</title>
+        <title>Analytics for Accessibility</title>
         <meta name="description" content="An introduction to using analytics to improve on a website or web app's accessibility" >
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">

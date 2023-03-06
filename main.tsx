@@ -73,6 +73,10 @@ function handler(req) {
     <!DOCTYPE html>
     <html lang="en">
       <head>
+        <title>Analytics for Accessibility</title>
+        <meta name="description" content="An introduction to using analytics to improve on a website or web app's accessibility" >
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <!-- Google tag (gtag.js) -->
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-1TB5S4JW40"></script>
         <script>
@@ -90,10 +94,6 @@ function handler(req) {
         <script>
           ${minifiedSnippet}
         </script>
-        <title>Analytics for Accessibility</title>
-        <meta name="description" content="An introduction to using analytics to improve on a website or web app's accessibility" >
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <style>
             body {
                 background-color: rebeccapurple;

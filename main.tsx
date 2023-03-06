@@ -37,6 +37,7 @@ function App({codeBlock}) {
             <li>Compare visit duration for pages with large animations or movement between folks who prefer reduced motion vs folks who have not expressed a preference</li>
             <li>Compare rage click counts between folks using forced colors vs folks who are not</li>
           </ul>
+          <h2 id="contact-info">Contact Info</h2>
           <p>And let me know what you find afterwards! You can find me on any of the following platforms:</p>
           <ul>
             <li><a href="https://github.com/Grunet/a11yanalytics/issues">Github Issues</a></li>
@@ -50,11 +51,11 @@ function App({codeBlock}) {
           <p>This site uses client-side Google Analytics 4. I tried very hard (in an uphill battle) to anonymize all information sent to Google (via Google Tag Manager) and documented <a href="https://dev.to/grunet/how-to-maximize-user-privacy-when-using-google-analytics-4-4cd7">how I configured Google Analytics to be maximally privacy preserving in this article</a>.</p>
           <p>The short version is that all of Google's cross-site and cross-device user tracking mechanisms should be disabled, leaving only page views and anonymous custom events (that I specified) emitted from client-side Javascript as a data source for Google Analytics.</p>
 
-          <p>I believe this is enough to not need a cookie notice. But if not, let me know via one of the above channels and I will work to add one.</p>
+          <p>I believe this is enough to not need a cookie notice. But if not, <a href="#contact-info">let me know via one of the above channels</a> and I will work to add one.</p>
 
           <h2>Accessibility Statement</h2>
           <p>This site (which is just this 1 page) is intentionally minimalistic to avoid accidentally introducing issues.</p>
-          <p>If you notice anything off let me know via one of the above channels and I will aim to fix it.</p>
+          <p>If you notice anything off <a href="#contact-info">let me know via one of the above channels</a> and I will aim to fix it.</p>
 
         </main>
   );

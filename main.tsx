@@ -13,13 +13,13 @@ function App({codeBlock}) {
           <h1>Analytics for Accessibility</h1>
           <p>How your users experience your websites matters. That's why you use analytics to better understand their behaviors and improve their experiences.</p>
           <p>Traditionally, your disabled users have been excluded from this feedback loop, primarily due to privacy concerns.</p>
-          <p>However, there are a few coarse segments you can gain information about to help improve disabled user experiences, such as</p>
+          <p>However, there are several coarse segments you can use to help improve disabled user experiences, including</p>
           <ul>
             <li>Whether or not they're a keyboard-dominant user</li>
-            <li>Whether or not they prefer motion animation to be reduced</li>
+            <li>Whether or not they prefer reduced motion animation</li>
             <li>Whether or not they're using Windows High Contrast Mode to increase color contrast</li>
           </ul>
-          <p>None of these distinguishes disabled users specifically, but an experience failure for any of these segments implies an experience failure for disabled users.</p>
+          <p>None of these segments uniquely identifies disabled users. But an experience failure for any of these segments will strongly imply an experience failure for disabled users.</p>
 
           <h2>Enhance Your Analytics</h2>
           <p>By default your analytics tool probably won't give you information on these segments. However, you can use a small snippet of code to change this.</p>

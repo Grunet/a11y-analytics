@@ -18,7 +18,7 @@ You should see the minified snippet out in the console, as well as showing up as
 
 ## Deployment Pipeline
 
-This repository is hooked up to a (manually created) Deno Deploy project. So every merge to main will cause a redeploy of `main.tsx` and the https://a11yanalytics.deno.dev/ site
+This repository is hooked up to a (manually created) Deno Deploy project. So every merge to main will cause a redeploy of `main.tsx` and the https://a11y-analytics.deno.dev/ site
 
 ## Supply Chain Security Considerations
 

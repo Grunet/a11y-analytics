@@ -33,8 +33,8 @@ function App({codeBlock}) {
           <p>This will start annotating events in Google Analytics with accessibility-specific parameters. You can then use them to create the aforementioned segments.</p>
           <p>From there it's up to you, but to get you started here are some ideas</p>
           <ul>
-            <li>Compare conversion rates between keyboard users and non-keyboard users </li>
-            <li>Compare visit duration for pages with large animations or movement between folks who prefer reduced motion vs folks who have not expressed a preference</li>
+            <li>Compare conversion rates between keyboard users and non-keyboard users</li>
+            <li>For pages with significant animations, compare visit duration between folks who prefer reduced motion vs folks who have not expressed a preference</li>
             <li>Compare rage click counts between folks using forced colors vs folks who are not</li>
           </ul>
           <h2 id="contact-info">Contact Info</h2>

@@ -55,7 +55,8 @@ function App({codeBlock}) {
 
           <h2>Accessibility Statement</h2>
           <p>This site (which is just this 1 page) is intentionally minimalistic to avoid accidentally introducing issues.</p>
-          <p>If you notice anything off <a href="#contact-info">let me know via one of the above channels</a> and I will aim to fix it.</p>
+          <p>The horizontal scrolling is intentional as I didn't want to wrap the code snippet. Since it's not important to read it, I assumed this was okay.</p>
+          <p>If you notice anything else off <a href="#contact-info">let me know via one of the above channels</a> and I will aim to fix it.</p>
 
         </main>
   );

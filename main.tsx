@@ -16,7 +16,7 @@ function App({codeBlock}) {
           <p>However, there are several coarse segments you can use to help improve disabled user experiences, including</p>
           <ul>
             <li>Whether or not they're a keyboard-dominant user</li>
-            <li>Whether or not they prefer reduced motion animation</li>
+            <li>Whether or not they prefer reduced motion in animations</li>
             <li>Whether or not they're using Windows High Contrast Mode to increase color contrast</li>
           </ul>
           <p>None of these segments uniquely identifies disabled users. But an experience failure for any of these segments will strongly imply an experience failure for disabled users.</p>

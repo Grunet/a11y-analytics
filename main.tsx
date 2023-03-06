@@ -23,7 +23,7 @@ function App({codeBlock}) {
 
           <h2>Enhance Your Analytics</h2>
           <p>By default your analytics tool probably won't give you information on these segments. However, you can use a small snippet of code to change this.</p>
-          <p>For Google Analytics 4, add the following snippet to your sites right after the Google Analytics scripts (you can find <a href="https://github.com/Grunet/a11yanalytics/blob/main/analytics.js">an unminified version of the script on Github</a>)</p>
+          <p>For Google Analytics 4, add the following snippet to your sites right after the Google Analytics scripts (you can find <a href="https://github.com/Grunet/a11y-analytics/blob/main/analytics.js">an unminified version of the script on Github</a>)</p>
           <button id="copyButton" style="height: 4rem;">Copy Google Analytics Code Snippet to Clipboard</button>
           <pre>
             <code id="codeSnippet" tabindex="0" role="region" aria-label="Code Snippet" aria-description="for the Google Analytics Integration">
@@ -40,7 +40,7 @@ function App({codeBlock}) {
           <h2 id="contact-info">Contact Info</h2>
           <p>And let me know what you find afterwards! You can find me on any of the following platforms:</p>
           <ul>
-            <li><a href="https://github.com/Grunet/a11yanalytics/issues">Github Issues</a></li>
+            <li><a href="https://github.com/Grunet/a11y-analytics/issues">Github Issues</a></li>
             <li><a href="https://twitter.com/__grunet">My Twitter Profile</a></li>
             <li><a href="https://www.reddit.com/user/__grunet">My Reddit Profile</a></li>
           </ul>

@@ -1,6 +1,6 @@
 # A11y Analytics
 
-See https://a11yanalytics.deno.dev/ for more information
+See https://a11y-analytics.deno.dev/ for more information
 
 ## Build Pipeline
 

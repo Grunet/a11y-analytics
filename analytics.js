@@ -1,13 +1,21 @@
+decorateGtagWithAccessibilityInformation();
+
 function decorateGtagWithAccessibilityInformation() {
+  decorateCustomEventGlobalWithAccessibilityInformation({
+    getGlobal: () => {  return window.gtag; }, 
+    setGlobal: (value) => { window.gtag = value; }
+  });
+}
 
-    const accessibilityEventParameters = {};
-    const oldGtagFunction = window.gtag;
+function decorateCustomEventGlobalWithAccessibilityInformation({ getGlobal, setGlobal}) {
+  const accessibilityEventParameters = {};
+    const oldGtagFunction = getGlobal();
 
-    window.gtag = function accessibilityDecoratedGtag(event, type, parameters) {
+    setGlobal(function accessibilityDecoratedGtag(event, type, parameters) {
         const adjustedParameters = {...parameters,...accessibilityEventParameters};
 
         oldGtagFunction(event, type, adjustedParameters);
-    }
+    })
 
     // Media Features - code resolves synchronously
     try {
@@ -115,5 +123,3 @@ function decorateGtagWithAccessibilityInformation() {
         return true;
       }
 }
-
-decorateGtagWithAccessibilityInformation();

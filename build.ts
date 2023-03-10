@@ -4,16 +4,16 @@ const outputDir = "./dist/";
 
 await cleanDirectory(outputDir);
 
-const buffer = await Deno.readFile("ga-analytics.js");
+await esbuild.build({
+    entryPoints: ['./ga-analytics.js'],
+    outfile: './dist/ga-analytics.min.js',
+    bundle: true,
+    minify: true
+  })
 
-const { code:minifiedCode } = await esbuild.transform(buffer, {
-    minify: true,
-});
+const minifiedCode = await Deno.readTextFile("./dist/ga-analytics.min.js");
 
 console.log(minifiedCode);
-
-await Deno.mkdir(outputDir);
-await Deno.writeTextFile(`${outputDir}ga-analytics.min.js`, minifiedCode);
 
 // Directly pasting the minified JS into main.tsx doesn't work because it runs into issues with not escaping backticks, single quotes, and double quotes
 

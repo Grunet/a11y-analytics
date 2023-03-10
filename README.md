@@ -2,6 +2,12 @@
 
 See https://a11y-analytics.deno.dev/ for more information
 
+## Performance Considerations
+
+The initial synchronous work done by the snippet takes approximately 10 plus or minus 3 milliseconds, roughly.
+
+The snippet itself currently weighs in at approximately 2.6 kilobytes.
+
 ## Build Pipeline
 
 To minify the source file and create a snippet to include on the website, go through the following steps

@@ -59,7 +59,7 @@ function decorateCustomEventGlobalWithAccessibilityInformation({ getGlobal, setG
                         return;
                     }
                 
-                    accessibilityEventParameters["uses-keyboard"] = true;
+                    accessibilityEventParameters["uses_keyboard"] = true;
                 
                     clearInterval(intervalId);
                 }, 500);
@@ -95,9 +95,10 @@ function decorateCustomEventGlobalWithAccessibilityInformation({ getGlobal, setG
             return;
           }
         
+          const analyticsProviderSafeMediaFeatureName = mediaFeature.replaceAll("-","_");
           const preferredValue = mediaQueryThatResolvedToTrue.possibleValue;
   
-          accessibilityEventParameters[mediaFeature] = preferredValue;
+          accessibilityEventParameters[analyticsProviderSafeMediaFeatureName] = preferredValue;
         }
         
         function checkIfBrowserSupportsMediaFeature({ mediaFeature }) {

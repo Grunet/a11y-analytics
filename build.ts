@@ -15,7 +15,7 @@ const minifiedCode = await Deno.readTextFile("./dist/ga-analytics.min.js");
 
 console.log(minifiedCode);
 console.log("");
-console.log(`Number of bytes ${2*minifiedCode.length}`);
+console.log(`Number of bytes: ${minifiedCode.length}`);
 
 // Directly pasting the minified JS into main.tsx doesn't work because it runs into issues with not escaping backticks, single quotes, and double quotes
 

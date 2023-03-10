@@ -1,4 +1,5 @@
 import * as esbuild from "https://deno.land/x/esbuild@v0.17.11/mod.js";
+import { gzip } from "https://deno.land/x/compress@v0.4.5/gzip/gzip.ts";
 
 const outputDir = "./dist/";
 
@@ -15,7 +16,14 @@ const minifiedCode = await Deno.readTextFile("./dist/ga-analytics.min.js");
 
 console.log(minifiedCode);
 console.log("");
-console.log(`Number of bytes: ${minifiedCode.length}`);
+
+const encoder = new TextEncoder();
+const bytes = encoder.encode(minifiedCode);
+const uint8Array = new Uint8Array(bytes);
+const compressedBytes = gzip(uint8Array);
+
+console.log(`Number of bytes: ${uint8Array.length}`);
+console.log(`Number of bytes after gzip compression: ${compressedBytes.length}`);
 
 // Directly pasting the minified JS into main.tsx doesn't work because it runs into issues with not escaping backticks, single quotes, and double quotes
 

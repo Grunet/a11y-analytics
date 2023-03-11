@@ -63,3 +63,7 @@ Debian images generally include many more Linux kernel packages than other slimm
 Creation of the snippet and its inclusion into the website are currently manual processes, vulnerable to modification by other malicious things running on the same system.
 
 The primary mitigation for this is to perform the processes on a clean machine, in this case a Github Codespace. It also helps that I'm the only contributor currently, as the mitigation is useless otherwise.
+
+### Human Things
+
+I currently am the only owner of this repository, and I have MFA enabled on my account.

@@ -134,7 +134,7 @@ function handler(req) {
             #before-code-snippet, #after-code-snippet {
               display: block;
               font-size: 0.75rem;
-              margin: 1rem;
+              margin: 2rem;
             }
         </style>
       </head>

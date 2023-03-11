@@ -130,6 +130,12 @@ function handler(req) {
               padding: 0.75rem;
               border-style: solid;
             }
+            
+            #before-code-snippet, #after-code-snippet {
+              display: block;
+              font-size: 0.75rem;
+              margin: 1rem;
+            }
         </style>
       </head>
       <body>

@@ -47,12 +47,7 @@ function App({codeBlock}) {
             <li><a href="https://www.reddit.com/user/__grunet">My Reddit Profile</a></li>
           </ul>
           <h2>Privacy Aspects</h2>
-          <h3>Notes on Fingerprinting</h3>
-          <p>Device and user fingerprinting is a technique unscrupulous websites and tools use to track you and your activity across the internet, without requiring 3rd party cookies or any form of traditional tracking.</p>
-          <p>It works by using standard web APIs to measure a large number of characteristics about your device and your settings. Each individual characteristic on its own doesn't identify you, but narrows you down a little amongst all other users. The problem being when all of the characteristics are considered together, they end up narrowing down all the way to you specifically amongst all users (follow <a href="https://coveryourtracks.eff.org/">this link for more details on fingerprinting</a>).</p>
-
-          <p>The web APIs in use by Analytics for Accessibility are also susceptible to being abused as fingerprinting characteristics. And what's more concerning is someone having their disability fingerprinted as a result.</p>
-          <p>Sadly, there is no direct defense to fingerprinting that I'm aware of. The best that can be done is to track the offenders, so I started <a href="https://github.com/Grunet/a11y-fingerprinting">a repository for tracking these privacy abusing websites specifically</a>.</p>
+          <p>Privacy is a critical part of any robust analytics solution. Here are some considerations when it comes to Analytics for Accessibility.</p>
 
           <h3>Privacy Aspects of this Site</h3>
           <p>This site is hosted on <a href="https://deno.com/deploy">Deno Deploy</a>, so they (and their subprocessors) most likely have access to your IP address, what browser you're using, its version, and what your operating system is. I don't know yet of any way to control that but <a href="https://www.reddit.com/r/Deno/comments/11id32r/deno_deploy_and_privacy_deep_dive/">I asked on Reddit about Deno Deploy's privacy posture</a>.</p>
@@ -62,6 +57,13 @@ function App({codeBlock}) {
           <p>The short version is that all of Google's cross-site and cross-device user tracking mechanisms should be disabled, leaving only page views and anonymous custom events (that I specified) emitted from client-side Javascript as a data source for Google Analytics.</p>
 
           <p>I believe this is enough to not need a cookie notice. But if not, <a href="#contact-info">let me know via one of the above channels</a> and I will work to add one.</p>
+
+          <h3>Notes on Fingerprinting and Accessibility</h3>
+          <p>Device and user fingerprinting is a technique unscrupulous websites and tools use to track you and your activity across the internet, without requiring 3rd party cookies or any form of traditional tracking.</p>
+          <p>It works by using standard web APIs to measure a large number of characteristics about your device and your settings. Each individual characteristic on its own doesn't identify you, but narrows you down a little amongst all other users. The problem being when all of the characteristics are considered together, they end up narrowing down all the way to you specifically amongst all users (follow <a href="https://coveryourtracks.eff.org/">this link for more details on fingerprinting</a>).</p>
+
+          <p>The web APIs in use by Analytics for Accessibility are also susceptible to being abused as fingerprinting characteristics. And what's more concerning is someone having their disability fingerprinted as a result.</p>
+          <p>Sadly, there is no direct defense to fingerprinting that I'm aware of. The best that can be done is to track the offenders, so I started <a href="https://github.com/Grunet/a11y-fingerprinting">a repository for tracking these privacy abusing websites specifically</a>.</p>
 
           <h2>Accessibility Statement</h2>
           <p>This site (which is just this 1 page) is intentionally minimalistic to avoid accidentally introducing issues.</p>

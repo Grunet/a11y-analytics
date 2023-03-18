@@ -48,7 +48,7 @@ function App({codeBlock}) {
           </ul>
           <h2>Notes on Fingerprinting</h2>
           <p>Device and user fingerprinting is a technique unscrupulous websites and tools use to track you and your activity across the internet, without requiring 3rd party cookies or any form of traditional tracking.</p>
-          <p>It works by using standard web APIs to measure a large number of characteristics about your device and your settings. Each individual characteristic on its own doesn't identify you, but narrows you down a little amongst all other users. The problem being when all of the characteristics are considered together, they end up narrowing down all the way to you specifically amongst all users.</p>
+          <p>It works by using standard web APIs to measure a large number of characteristics about your device and your settings. Each individual characteristic on its own doesn't identify you, but narrows you down a little amongst all other users. The problem being when all of the characteristics are considered together, they end up narrowing down all the way to you specifically amongst all users (follow <a href="https://coveryourtracks.eff.org/">this link for more details on fingerprinting</a>).</p>
 
           <p>The web APIs in use by Analytics for Accessibility are also susceptible to being abused as fingerprinting characteristics. And what's more concerning is someone having their disabilitiy fingerprinted as a result.</p>
           <p>Sadly, there is no direct defense to fingerprinting that I'm aware of. The best that can be done is to track the offenders, so I started <a href="https://github.com/Grunet/a11y-fingerprinting">a repository for tracking these privacy abusing websites specifically</a>.</p>

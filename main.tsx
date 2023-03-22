@@ -62,8 +62,8 @@ function App({codeBlock}) {
           <p>Device and user fingerprinting is a technique unscrupulous websites and tools use to track you and your activity across the internet, without requiring 3rd party cookies or any form of traditional tracking.</p>
           <p>It works by using standard web APIs to measure a large number of characteristics about your device and your settings. Each individual characteristic on its own doesn't identify you, but narrows you down a little amongst all other users. The problem being when all of the characteristics are considered together, they end up narrowing down all the way to you specifically amongst all users (follow <a href="https://coveryourtracks.eff.org/">this link for more details on fingerprinting</a>).</p>
 
-          <p>The web APIs in use by Analytics for Accessibility are also susceptible to being abused as fingerprinting characteristics. And what's more concerning is someone having their disability fingerprinted as a result.</p>
-          <p>Sadly, there is no direct defense to fingerprinting that I'm aware of. The best that can be done is to track the offenders, so I started <a href="https://github.com/Grunet/a11y-fingerprinting">a repository for tracking these privacy abusing websites specifically</a>.</p>
+          <p>The web APIs in use by Analytics for Accessibility are also susceptible to being abused as fingerprinting characteristics. This is not a hypothetical, <a href="https://github.com/fingerprintjs/fingerprintjs/tree/master/src/sources">there are solutions available today that fingerprint based off of accessibility characteristics</a>.</p>
+          <p>Sadly, there is no direct defense to fingerprinting that I'm aware of. The best that can be done is to find the offenders and block them (e.g. like <a href="https://disconnect.me/disconnect">the tracker blocking company Disconnect</a> attempts to do)</p>
 
           <h2>Accessibility Statement</h2>
           <p>This site (which is just this 1 page) is intentionally minimalistic to avoid accidentally introducing issues.</p>

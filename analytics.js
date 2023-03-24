@@ -33,6 +33,12 @@ function decorateCustomEventGlobalWithAccessibilityInformation({ getGlobal, setG
             mediaFeature: "forced-colors",
             possibleValues: ["none", "active"],
         });
+
+        // https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-contrast
+        captureMediaFeatureBasedPreference({
+            mediaFeature: "prefers-contrast",
+            possibleValues: ["no-preference", "more", "less", "custom"],
+        });
       } catch (error) {
         console.error(error);
       }

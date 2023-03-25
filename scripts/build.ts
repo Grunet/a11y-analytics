@@ -5,7 +5,13 @@ const outputDir = "./dist/";
 
 await cleanDirectory(outputDir);
 
+console.log("\n");
+
 await buildOneAnalyticsSnippet({prefix: "ga"});
+
+console.log("\n");
+
+await buildOneAnalyticsSnippet({prefix: "plausible"});
 
 Deno.exit();
 
@@ -22,8 +28,8 @@ async function buildOneAnalyticsSnippet({prefix}: {prefix: string}) {
     
     const minifiedCode = await Deno.readTextFile(`./dist/${prefix}-analytics.min.js`);
     
-    console.log(minifiedCode);
-    console.log("");
+    // console.log(minifiedCode);
+    // console.log("");
     
     const encoder = new TextEncoder();
     const bytes = encoder.encode(minifiedCode);

@@ -2,6 +2,13 @@
 
 See https://a11y-analytics.deno.dev/ for more information
 
+## Supported Analytics Providers
+
+These are the analytics providers the snippet can work with at the moment
+
+- Google Analytics
+- Plausible
+
 ## Performance Considerations
 
 The initial synchronous work done by the snippet takes approximately 10 plus or minus 3 milliseconds, roughly.

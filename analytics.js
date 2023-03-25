@@ -50,7 +50,7 @@ function decorateCustomEventGlobalWithAccessibilityInformation({ getGlobal, setG
       
   
       // Keyboard detection code - code resolves asynchronously
-      (function captureAndEmitKeyboardData() {
+      (function resolveKeyboardData() {
               try {
                     const intervalId = setInterval(function checkForKeyboardUsage() {
         
@@ -70,7 +70,19 @@ function decorateCustomEventGlobalWithAccessibilityInformation({ getGlobal, setG
                         return;
                     }
                 
-                    accessibilityEventParameters["uses_keyboard"] = true;
+                    const adjustedFeatureName = "uses_keyboard"; // Google Analytics requires underscores instead of dashes for its custom dimensions
+                    const resolvedValue = true;
+                    
+                    accessibilityEventParameters[adjustedFeatureName] = resolvedValue;
+
+                    if (onResolutionCallback) {
+                      onResolutionCallback({
+                        name: adjustedFeatureName,
+                        data: {
+                          value: resolvedValue,
+                        }
+                      });
+                    }
                 
                     clearInterval(intervalId);
                 }, 500);
@@ -118,7 +130,7 @@ function decorateCustomEventGlobalWithAccessibilityInformation({ getGlobal, setG
             return;
           }
         
-          const analyticsProviderSafeMediaFeatureName = mediaFeature.replaceAll("-","_");
+          const analyticsProviderSafeMediaFeatureName = mediaFeature.replaceAll("-","_"); // Google Analytics requires underscores instead of dashes for its custom dimensions
           const preferredValue = mediaQueryThatResolvedToTrue.possibleValue;
   
           accessibilityEventParameters[analyticsProviderSafeMediaFeatureName] = preferredValue;

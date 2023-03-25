@@ -30,8 +30,8 @@ async function buildOneAnalyticsSnippet({prefix}: {prefix: string}) {
     const uint8Array = new Uint8Array(bytes);
     const compressedBytes = gzip(uint8Array);
     
-    console.log(`Number of bytes in ./dist/${prefix}-analytics.min.js: ${uint8Array.length}`);
-    console.log(`Number of bytes in ./dist/${prefix}-analytics.min.js after gzip compression: ${compressedBytes.length}`);
+    console.log(`Number of bytes in ${prefix}-analytics.min.js: ${uint8Array.length}`);
+    console.log(`Number of bytes in ${prefix}-analytics.min.js after gzip compression: ${compressedBytes.length}`);
     
     // Directly pasting the minified JS into main.tsx doesn't work because it runs into issues with not escaping backticks, single quotes, and double quotes
     

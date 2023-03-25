@@ -9,8 +9,10 @@ function decorateGtagWithAccessibilityInformation() {
 
         if (originalArguments.length >= 3) {
           const originalParameters = originalArguments[2];
-          const newParameters = {...originalParameters, ...accessibilityEventParameters};
-          translatedArguments[2] = newParameters;
+          
+          const translatedParameters = {...originalParameters, ...accessibilityEventParameters};
+
+          translatedArguments[2] = translatedParameters;
         }
 
         return translatedArguments;

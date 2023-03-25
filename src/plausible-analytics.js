@@ -11,10 +11,10 @@ function decoratePlausibleWithAccessibilityInformation() {
           const originalOptions = originalArguments[1];
           const originalProps = originalOptions?.props;
           
-          const newProps = {...originalProps, ...accessibilityEventParameters}; 
-          const newOptions = {...originalOptions, ...{props: newProps}};
+          const translatedProps = {...originalProps, ...accessibilityEventParameters}; 
+          const translatedOptions = {...originalOptions, ...{props: translatedProps}};
 
-          translatedArguments[1] = newOptions;
+          translatedArguments[1] = translatedOptions;
         }
 
         return translatedArguments;

@@ -1,11 +1,11 @@
-function decorateCustomEventGlobalWithAccessibilityInformation({ getGlobal, setGlobal, onResolutionCallback }) {
-    const accessibilityEventParameters = {};
-      const oldGtagFunction = getGlobal();
+function decorateCustomEventGlobalWithAccessibilityInformation({ getGlobal, setGlobal, translateArguments, onResolutionCallback }) {
+      const accessibilityEventParameters = {};
+      const oldAnalyticsGlobal = getGlobal();
   
-      setGlobal(function accessibilityDecoratedGtag(event, type, parameters) {
-          const adjustedParameters = {...parameters,...accessibilityEventParameters};
+      setGlobal(function accessibilityDecoratedAnalyticsGlobal(...originalArguments) {
+          const translatedArguments = translateArguments({ originalArguments, accessibilityEventParameters});
   
-          oldGtagFunction(event, type, adjustedParameters);
+          oldAnalyticsGlobal.apply(window, translatedArguments);
       })
   
       // Media Features - code resolves synchronously

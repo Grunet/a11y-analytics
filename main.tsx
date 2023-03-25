@@ -75,7 +75,7 @@ function App({codeBlock}) {
 }
 
 const minifiedSnippet = `(()=>{function m({getGlobal:t,setGlobal:d,translateArguments:f,onResolutionCallback:a}){let u={},p=t();d(function(...r){let i=f({originalArguments:r,accessibilityEventParameters:u});p.apply(window,i)});try{l({mediaFeature:"prefers-reduced-motion",possibleValues:["no-preference","reduce"],onResolutionCallback:a}),l({mediaFeature:"prefers-color-scheme",possibleValues:["light","dark"],onResolutionCallback:a}),l({mediaFeature:"inverted-colors",possibleValues:["none","inverted"],onResolutionCallback:a}),l({mediaFeature:"forced-colors",possibleValues:["none","active"],onResolutionCallback:a}),l({mediaFeature:"prefers-contrast",possibleValues:["no-preference","more","less","custom"],onResolutionCallback:a})}catch(e){console.error(e)}(function(){try{let r=setInterval(function(){let o=document.querySelector(":focus-visible");if(!o)return;let s=o.tagName.toUpperCase();if(s==="INPUT"||s==="TEXTAREA"||o.contentEditable==="true")return;let n="uses_keyboard",c=!0;u[n]=c,a&&a({name:n,data:{resolvedValue:c}}),clearInterval(r)},500)}catch(r){console.error(r)}})();function l({mediaFeature:e,possibleValues:r,onResolutionCallback:i}){let{adjustedFeatureName:o,value:s,error:n}=v({mediaFeature:e,possibleValues:r});n||i&&i({name:o,data:{resolvedValue:s}})}function v({mediaFeature:e,possibleValues:r}){if(w({mediaFeature:e})===!1)return{error:new Error(\`Unsupported media feature \${e}\`)};let o=r.map(c=>({possibleValue:c,mediaQueryResult:window.matchMedia(\`(\${e}: \${c})\`).matches})).find(({_:c,mediaQueryResult:y})=>y===!0);if(o===void 0)return console.error(\`Something went wrong. Is there a new \${e} allowed value not accounted for here?\`),{error:new Error(\`No media query resolved to true for \${e}\`)};let s=e.replaceAll("-","_"),n=o.possibleValue;return u[s]=n,{adjustedFeatureName:s,value:n}}function w({mediaFeature:e}){return window.matchMedia(\`not all and (\${e}), (\${e})\`).matches?!0:(console.warn(\`Your browser doesn't support \${e} yet\`),!1)}}function h(){m({getGlobal:()=>window.gtag,setGlobal:t=>{window.gtag=t},translateArguments:({originalArguments:t,accessibilityEventParameters:d})=>{let f=[...t];if(t.length>=3){let u={...t[2],...d};f[2]=u}return f},onResolutionCallback:({name:t,data:{resolvedValue:d}})=>{window.gtag("event","resolvedAccessibilityData",{nameOfData:t,resolvedValue:d})}})}h();})();`;
-const codeBlock = `<script>${minifiedSnippet}</script>`;
+const codeBlock = `<script type="module">${minifiedSnippet}</script>`;
 
 function handler(req) {
 
@@ -104,7 +104,7 @@ function handler(req) {
 
           gtag('config', 'G-Q5R7J81KZZ');
         </script>
-        <script>
+        <script type="module">
           ${minifiedSnippet}
         </script>
         <style>

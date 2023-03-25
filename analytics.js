@@ -1,4 +1,4 @@
-function decorateCustomEventGlobalWithAccessibilityInformation({ getGlobal, setGlobal}) {
+function decorateCustomEventGlobalWithAccessibilityInformation({ getGlobal, setGlobal, onResolutionCallback }) {
     const accessibilityEventParameters = {};
       const oldGtagFunction = getGlobal();
   
@@ -11,33 +11,38 @@ function decorateCustomEventGlobalWithAccessibilityInformation({ getGlobal, setG
       // Media Features - code resolves synchronously
       try {
         // https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-reduced-motion
-        captureMediaFeatureBasedPreference({
+        resolveMediaFeatureBasedPreference({
           mediaFeature: "prefers-reduced-motion",
           possibleValues: ["no-preference", "reduce"],
+          onResolutionCallback,
         });
   
         // https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme
-        captureMediaFeatureBasedPreference({
+        resolveMediaFeatureBasedPreference({
             mediaFeature: "prefers-color-scheme",
             possibleValues: ["light", "dark"],
+            onResolutionCallback,
         });
   
         // https://developer.mozilla.org/en-US/docs/Web/CSS/@media/inverted-colors - Safari only currently
-        captureMediaFeatureBasedPreference({
+        resolveMediaFeatureBasedPreference({
             mediaFeature: "inverted-colors",
             possibleValues: ["none", "inverted"],
+            onResolutionCallback,
         });
   
         // https://developer.mozilla.org/en-US/docs/Web/CSS/@media/forced-colors
-        captureMediaFeatureBasedPreference({
+        resolveMediaFeatureBasedPreference({
             mediaFeature: "forced-colors",
             possibleValues: ["none", "active"],
+            onResolutionCallback,
         });
 
         // https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-contrast
-        captureMediaFeatureBasedPreference({
+        resolveMediaFeatureBasedPreference({
             mediaFeature: "prefers-contrast",
             possibleValues: ["no-preference", "more", "less", "custom"],
+            onResolutionCallback,
         });
       } catch (error) {
         console.error(error);
@@ -76,6 +81,18 @@ function decorateCustomEventGlobalWithAccessibilityInformation({ getGlobal, setG
   
   
       // Helper functions
+      function resolveMediaFeatureBasedPreference({ mediaFeature, possibleValues, onResolutionCallback }) {
+        const { adjustedFeatureName, value} = captureMediaFeatureBasedPreference({ mediaFeature, possibleValues });
+
+        if (onResolutionCallback) {
+          onResolutionCallback({
+            name: adjustedFeatureName,
+            data: {
+              value: value,
+            }
+          });
+        }
+      }
   
       function captureMediaFeatureBasedPreference({ mediaFeature, possibleValues }) {
           if (checkIfBrowserSupportsMediaFeature({ mediaFeature }) === false) {
@@ -105,6 +122,11 @@ function decorateCustomEventGlobalWithAccessibilityInformation({ getGlobal, setG
           const preferredValue = mediaQueryThatResolvedToTrue.possibleValue;
   
           accessibilityEventParameters[analyticsProviderSafeMediaFeatureName] = preferredValue;
+
+          return {
+            adjustedFeatureName: analyticsProviderSafeMediaFeatureName,
+            value: preferredValue
+          }
         }
         
         function checkIfBrowserSupportsMediaFeature({ mediaFeature }) {

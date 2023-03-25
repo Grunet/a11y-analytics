@@ -9,6 +9,11 @@ These are the analytics providers the snippet can work with at the moment
 - Google Analytics
 - Plausible
 
+The snippet should always be inserted as follows
+
+- After all of the scripts of the analytics provider
+- As an inline script tag with `type` set to `module` so its execution is deferred until the analytics provider scripts finish executing
+
 ## Performance Considerations
 
 The initial synchronous work done by the snippet takes approximately 10 plus or minus 3 milliseconds, roughly.

@@ -159,7 +159,7 @@ function handler(req) {
             navigator.clipboard.writeText(codeSnippet);
 
             gtag('event', 'copiedToClipboard', {
-              'param1': 'true',
+              'conversion': 'true',
             });
           });
         </script>

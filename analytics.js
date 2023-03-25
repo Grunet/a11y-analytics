@@ -94,7 +94,11 @@ function decorateCustomEventGlobalWithAccessibilityInformation({ getGlobal, setG
   
       // Helper functions
       function resolveMediaFeatureBasedPreference({ mediaFeature, possibleValues, onResolutionCallback }) {
-        const { adjustedFeatureName, value} = captureMediaFeatureBasedPreference({ mediaFeature, possibleValues });
+        const { adjustedFeatureName, value, error} = captureMediaFeatureBasedPreference({ mediaFeature, possibleValues });
+
+        if (error) {
+          return;
+        }
 
         if (onResolutionCallback) {
           onResolutionCallback({
@@ -108,7 +112,9 @@ function decorateCustomEventGlobalWithAccessibilityInformation({ getGlobal, setG
   
       function captureMediaFeatureBasedPreference({ mediaFeature, possibleValues }) {
           if (checkIfBrowserSupportsMediaFeature({ mediaFeature }) === false) {
-            return;
+            return {
+              error: new Error(`Unsupported media feature ${mediaFeature}`),
+            };
           }
         
           const resolvedMediaQueries = possibleValues.map((possibleValue) => {
@@ -127,7 +133,10 @@ function decorateCustomEventGlobalWithAccessibilityInformation({ getGlobal, setG
             console.error(
               `Something went wrong. Is there a new ${mediaFeature} allowed value not accounted for here?`
             );
-            return;
+
+            return {
+              error: new Error(`No media query resolved to true for ${mediaFeature}`),
+            };
           }
         
           const analyticsProviderSafeMediaFeatureName = mediaFeature.replaceAll("-","_"); // Google Analytics requires underscores instead of dashes for its custom dimensions

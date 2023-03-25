@@ -6,7 +6,7 @@ const outputDir = "./dist/";
 await cleanDirectory(outputDir);
 
 await esbuild.build({
-    entryPoints: ['./ga-analytics.js'],
+    entryPoints: ['./src/ga-analytics.js'],
     outfile: './dist/ga-analytics.min.js',
     bundle: true,
     minify: true

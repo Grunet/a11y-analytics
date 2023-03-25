@@ -1,5 +1,5 @@
 {
   "tasks": {
-    "build": "deno run --allow-read --allow-env --allow-write=./dist/,/home/vscode/.cache/esbuild/bin --allow-net=registry.npmjs.org build.ts"
+    "build": "deno run --allow-read --allow-env --allow-write=./dist/,/home/vscode/.cache/esbuild/bin --allow-net=registry.npmjs.org ./scripts/build.ts"
   }
 }

@@ -72,14 +72,14 @@ function decorateCustomEventGlobalWithAccessibilityInformation({ getGlobal, setG
                 
                     const adjustedFeatureName = "uses_keyboard"; // Google Analytics requires underscores instead of dashes for its custom dimensions
                     const resolvedValue = true;
-                    
+
                     accessibilityEventParameters[adjustedFeatureName] = resolvedValue;
 
                     if (onResolutionCallback) {
                       onResolutionCallback({
                         name: adjustedFeatureName,
                         data: {
-                          value: resolvedValue,
+                          resolvedValue,
                         }
                       });
                     }
@@ -100,7 +100,7 @@ function decorateCustomEventGlobalWithAccessibilityInformation({ getGlobal, setG
           onResolutionCallback({
             name: adjustedFeatureName,
             data: {
-              value: value,
+              resolvedValue: value,
             }
           });
         }

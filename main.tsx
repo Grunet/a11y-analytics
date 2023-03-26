@@ -166,7 +166,7 @@ function handler(req) {
         <script type="module">
           const buttonEl = document.getElementById("enable-ga");
           buttonEl.addEventListener("click", function enableGaButtonClickHandler() {
-            gtag('consent', 'default', {
+            gtag('consent', 'update', {
               'analytics_storage': 'granted'
             });
           });

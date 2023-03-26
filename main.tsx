@@ -54,9 +54,9 @@ function App({codeBlock}) {
           <p>The app code running on it is completely ignoring those pieces of PII.</p>
 
           <p>This site uses client-side Google Analytics 4. I tried very hard (in an uphill battle) to anonymize all information sent to Google (via Google Tag Manager) and documented <a href="https://dev.to/grunet/how-to-maximize-user-privacy-when-using-google-analytics-4-4cd7">how I configured Google Analytics to be maximally privacy preserving in an article</a>.</p>
-          <p>The short version is that all of Google's cross-site and cross-device user tracking mechanisms should be disabled, leaving only page views and anonymous custom events (that I specified) emitted from client-side Javascript as a data source for Google Analytics.</p>
+          <p>The short version is that by default Google Analytics should not be saving any data (though data may be sent to it). To change that activate the following button (there's no real need to do this outside of me testing)</p>
 
-          <p>I believe this is enough to not need a cookie notice. But if not, <a href="#contact-info">let me know via one of the above channels</a> and I will work to add one.</p>
+          <button id="enable-ga">Enable Google Analytics to Save Data</button>
 
           <h3>Notes on Fingerprinting and Accessibility</h3>
           <p>Device and user fingerprinting is a technique unscrupulous websites and tools use to track you and your activity across the internet, without requiring 3rd party cookies or any form of traditional tracking.</p>
@@ -160,6 +160,14 @@ function handler(req) {
 
             gtag('event', 'copiedToClipboard', {
               'conversion': 'true',
+            });
+          });
+        </script>
+        <script type="module">
+          const buttonEl = document.getElementById("enable-ga");
+          buttonEl.addEventListener("click", function enableGaButtonClickHandler() {
+            gtag('consent', 'default', {
+              'analytics_storage': 'granted'
             });
           });
         </script>

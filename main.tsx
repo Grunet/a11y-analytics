@@ -54,9 +54,9 @@ function App({codeBlock}) {
           <p>The app code running on it is completely ignoring those pieces of PII.</p>
 
           <p>This site uses client-side Google Analytics 4. I tried very hard (in an uphill battle) to anonymize all information sent to Google (via Google Tag Manager) and documented <a href="https://dev.to/grunet/how-to-maximize-user-privacy-when-using-google-analytics-4-4cd7">how I configured Google Analytics to be maximally privacy preserving in an article</a>.</p>
-          <p>The short version is that by default Google Analytics should not be saving any data (though data may be sent to it). To change that activate the following button (there's no real need to do this outside of me testing)</p>
+          <p>The short version is that by default Google Analytics should not be persisting any data (though data may be sent to it). To change that activate the following button (there's no need to do this outside of my own testing)</p>
 
-          <button id="enable-ga">Enable Google Analytics to Save Data</button>
+          <button id="enable-ga">Enable Google Analytics to Persist Data</button>
 
           <h3>Notes on Fingerprinting and Accessibility</h3>
           <p>Device and user fingerprinting is a technique unscrupulous websites and tools use to track you and your activity across the internet, without requiring 3rd party cookies or any form of traditional tracking.</p>

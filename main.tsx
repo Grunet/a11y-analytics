@@ -32,7 +32,7 @@ function App({codeBlock}) {
             </code>
           </pre>
           <a id="after-code-snippet" href="#before-code-snippet">Skip to before the code snippet</a>
-          <p>This will cause every custom event you're recording to also include the following boolean attributes</p>
+          <p>For every page load, you will start to find custom events named "resolvedAccessibilityData" for each of the following boolean attributes</p>
           <ul>
             <li>uses_keyboard</li>
             <li>prefers_reduced_motion</li>
@@ -41,6 +41,7 @@ function App({codeBlock}) {
             <li>forced_colors</li>
             <li>prefers_contrast</li>
           </ul>
+          <p>Every other custom event will also now include these attributes.</p>
           <p>You can then use these attributes to create the aforementioned segments.</p>
           <p>From here it's up to you, but to get you started here are some ideas to explore</p>
           <ul>

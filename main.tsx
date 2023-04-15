@@ -41,7 +41,7 @@ function App({codeBlock}) {
             <li>forced_colors</li>
             <li>prefers_contrast</li>
           </ul>
-          <p>You can then use these attributes to create the aforementioned segments and other ones.</p>
+          <p>You can then use these attributes to create the aforementioned segments.</p>
           <p>From here it's up to you, but to get you started here are some ideas to explore</p>
           <ul>
             <li>Compare conversion rates between keyboard users and non-keyboard users</li>

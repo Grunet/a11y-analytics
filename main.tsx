@@ -32,8 +32,17 @@ function App({codeBlock}) {
             </code>
           </pre>
           <a id="after-code-snippet" href="#before-code-snippet">Skip to before the code snippet</a>
-          <p>This will start annotating events in Google Analytics with accessibility-specific parameters. You can then use them to create the aforementioned segments.</p>
-          <p>From there it's up to you, but to get you started here are some ideas</p>
+          <p>This will cause every custom event you're recording to also include the following boolean attributes</p>
+          <ul>
+            <li>uses_keyboard</li>
+            <li>prefers_reduced_motion</li>
+            <li>prefers_color_scheme</li>
+            <li>inverted_colors</li>
+            <li>forced_colors</li>
+            <li>prefers_contrast</li>
+          </ul>
+          <p>You can then use these attributes to create the aforementioned segments.</p>
+          <p>From here it's up to you, but to get you started here are some ideas to explore</p>
           <ul>
             <li>Compare conversion rates between keyboard users and non-keyboard users</li>
             <li>For pages with significant animations, compare visit duration between folks who prefer reduced motion vs folks who have not expressed a preference</li>

@@ -32,7 +32,7 @@ function App({codeBlock}) {
             </code>
           </pre>
           <a id="after-code-snippet" href="#before-code-snippet">Skip to before the code snippet</a>
-          <p>This will start annotating events in Google Analytics with the following boolean attributes:</p>
+          <p>This will start annotating custom events in Google Analytics with the following boolean attributes:</p>
           <ul>
             <li>uses_keyboard</li>
             <li>prefers_reduced_motion</li>

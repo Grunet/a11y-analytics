@@ -32,7 +32,7 @@ function App({codeBlock}) {
             </code>
           </pre>
           <a id="after-code-snippet" href="#before-code-snippet">Skip to before the code snippet</a>
-          <p>For every page load, you will start to find custom events named <em>resolvedAccessibilityData</em> for each of the following boolean attributes</p>
+          <p>For every page load, you will start to find custom events named <q>resolvedAccessibilityData</q> for each of the following boolean attributes</p>
           <ul>
             <li>uses_keyboard</li>
             <li>prefers_reduced_motion</li>

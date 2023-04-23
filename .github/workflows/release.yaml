@@ -15,12 +15,13 @@ jobs:
         run: |
           version=$(cat version.json | jq --raw-output .version)
 
-          echo "{releaseVersion}={version}" >> "$GITHUB_OUTPUT"
+          echo "releaseVersion=$version" >> "$GITHUB_OUTPUT"
 
       - name: Release
         uses: softprops/action-gh-release@de2c0eb89ae2a093876385947365aca7b0e5f844 # v0.1.15
         with:
           name: v${{ steps.get-version.outputs.releaseVersion }}
+          tag_name: v${{ steps.get-version.outputs.releaseVersion }}
           files: |
             ./dist/ga-analytics.min.js
             ./dist/plausible-analytics.min.js

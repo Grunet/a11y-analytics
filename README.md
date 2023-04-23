@@ -52,6 +52,12 @@ The version of Debian used as the base image for the dev container used in Githu
 
 The version of the Deno VS Code extension is not pinned. This is a source of risk for slipping in subtle changes into code I wouldn't otherwise notice.
 
+#### Release Workflow
+
+All 3rd party Github Actions are pinned to a commit.
+
+Common libraries provided by the Github Actions runtime (e.g. jq) are not pinned.
+
 #### Production
 
 Deno Deploy's version is not pinned as it's a Software-as-a-Service platform.

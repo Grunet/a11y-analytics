@@ -34,9 +34,24 @@ deno task build
 
 You should see the minified snippet out in the console, as well as showing up as a file under the `dist/` folder.
 
+## Release Pipeline
+
+This applies to the creation of the Github Releases that contain the published Javascript snippets.
+
+To publish updated snippets the process goes as follows
+
+1. Update CHANGELOG.md with what the new changes include
+2. Update the version in version.json according to semantic versioning
+3. Create a PR with those changes and merge it into main
+4. Run the Release Github Workflow via workflow dispatch against the main branch
+
+A new Git tag and Github Release should be created containing the updated snippets.
+
 ## Deployment Pipeline
 
-This repository is hooked up to a (manually created) Deno Deploy project. So every merge to main will cause a redeploy of `main.tsx` and the https://a11y-analytics.deno.dev/ site
+This applies to the "marketing" website where the ideas behind this project are discussed.
+
+This repository is hooked up to a (manually created) Deno Deploy project. So every merge to main will cause a redeploy of `main.tsx` and the https://a11y-analytics.deno.dev/ site.
 
 ## Supply Chain Security Considerations
 

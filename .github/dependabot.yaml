@@ -1,0 +1,7 @@
+version: 2
+updates:
+    # Only concerned with taking major version upgrades, to stay in touch of picking up security patches
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "monthly"

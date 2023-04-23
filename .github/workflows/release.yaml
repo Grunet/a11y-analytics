@@ -1,0 +1,31 @@
+name: Release
+on:
+  workflow_dispatch:
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Confirm branch
+        if: ${{ github.ref }} !== "refs/heads/main"
+        run: |
+          exit 1
+
+      - uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab # v3.5.2
+
+      - name: Get version
+        id: get-version
+        run: |
+          version=$(cat version.json | jq --raw-output .version)
+
+          echo "{releaseVersion}={version}" >> "$GITHUB_OUTPUT"
+
+      - name: Release
+        uses: softprops/action-gh-release@de2c0eb89ae2a093876385947365aca7b0e5f844 # v0.1.15
+        with:
+          name: v${{ steps.get-version.outputs.releaseVersion }}
+          files: |
+            ./dist/ga-analytics.min.js
+            ./dist/plausible-analytics.min.js

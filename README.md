@@ -52,6 +52,12 @@ The version of Debian used as the base image for the dev container used in Githu
 
 The version of the Deno VS Code extension is not pinned. This is a source of risk for slipping in subtle changes into code I wouldn't otherwise notice.
 
+#### Release Workflow
+
+All 3rd party Github Actions are pinned to a commit.
+
+Common libraries provided by the Github Actions runtime (e.g. jq) are not pinned.
+
 #### Production
 
 Deno Deploy's version is not pinned as it's a Software-as-a-Service platform.
@@ -68,13 +74,27 @@ Currently Github doesn't seem to sign their dev container images, so it's not po
 
 ### Surface Area for Vulnerabilities
 
+#### Local Development
+
 Debian images generally include many more Linux kernel packages than other slimmer alternatives (e.g. alpine or Chainguard ones), meaning they have a much larger surface area for vulnerabilities. Github Codespaces only seemed to offer it as an option, and it's unclear to me how to make a custom alternative that still functions with Codespaces.
 
+[Deno dependencies are not yet tracked by Dependabot](https://github.com/dependabot/dependabot-core/issues/2417) meaning it's unlikely I'll get a notification if there's a security issue with them that requires an update.
+
+#### Release Workflow
+
+3rd party Github Actions are another vulnerability source. Dependabot should be notifying me of any reported security vulnerabilities with the ones in use, as well as helping keep them on the latest major version (to make it easier to take security patches).
+
 ### Automation and Clean Machines
+
+#### Local Development
 
 Creation of the snippet and its inclusion into the website are currently manual processes, vulnerable to modification by other malicious things running on the same system.
 
 The primary mitigation for this is to perform the processes on a clean machine, in this case a Github Codespace. It also helps that I'm the only contributor currently, as the mitigation is useless otherwise.
+
+#### Release Workflow
+
+The publishing of the Github Releases is done via Github Actions and their clean, ephemeral runners.
 
 ### Human Things
 

@@ -34,8 +34,10 @@ function decorateGtagWithAccessibilityInformation() {
       return translatedArguments;
     },
     onResolutionCallback: ({ name, data: { resolvedValue } }) => {
+      const pathname = new URL(window.location.href).pathname;
+
       window.gtag("event", "resolvedAccessibilityData", {
-        [`${name} [resolvedAccessibilityData]`]: resolvedValue,
+        [`${name} \{${pathname}\} [resolvedAccessibilityData]`]: resolvedValue,
       });
     },
   });

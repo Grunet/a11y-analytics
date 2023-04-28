@@ -5,92 +5,229 @@
 /// <reference lib="deno.ns" />
 
 import { serve } from "https://deno.land/std@0.140.0/http/server.ts";
-import { h, renderSSR, Helmet } from "https://deno.land/x/nano_jsx@v0.0.36/mod.ts";
+import {
+  h,
+  Helmet,
+  renderSSR,
+} from "https://deno.land/x/nano_jsx@v0.0.36/mod.ts";
 
-function App({codeBlock}) {
+function App({ codeBlock }) {
   return (
-        <main>
-          <h1>Analytics for Accessibility</h1>
-          <p>How your users experience your websites matters. That's why you use analytics to better understand their behaviors and improve their experiences.</p>
-          <p>Traditionally, your disabled users have been excluded from this feedback loop, primarily due to privacy concerns.</p>
-          <p>However, there are several coarse segments you can still use, including</p>
-          <ul>
-            <li>Whether or not they're a keyboard-dominant user</li>
-            <li>Whether or not they prefer reduced motion in animations</li>
-            <li>Whether or not they're using Windows High Contrast Mode to increase color contrast</li>
-          </ul>
-          <p>None of these segments uniquely identifies disabled users. But an experience failure for any of these segments will strongly imply an experience failure for disabled users.</p>
+    <main>
+      <h1>Analytics for Accessibility</h1>
+      <p>
+        How your users experience your websites matters. That's why you use
+        analytics to better understand their behaviors and improve their
+        experiences.
+      </p>
+      <p>
+        Traditionally, your disabled users have been excluded from this feedback
+        loop, primarily due to privacy concerns.
+      </p>
+      <p>
+        However, there are several coarse segments you can still use, including
+      </p>
+      <ul>
+        <li>Whether or not they're a keyboard-dominant user</li>
+        <li>Whether or not they prefer reduced motion in animations</li>
+        <li>
+          Whether or not they're using Windows High Contrast Mode to increase
+          color contrast
+        </li>
+      </ul>
+      <p>
+        None of these segments uniquely identifies disabled users. But an
+        experience failure for any of these segments will strongly imply an
+        experience failure for disabled users.
+      </p>
 
-          <h2>Enhance Your Analytics</h2>
-          <p>By default your analytics tool probably won't give you information on these segments. However, you can use a small snippet of code to change this.</p>
-          <p>For Google Analytics 4, add the following snippet to your site right after the Google Analytics scripts (you can find <a href="https://github.com/Grunet/a11y-analytics/blob/main/src/analytics.js">an unminified version of the snippet on Github</a>)</p>
-          <button id="copyButton">Copy the Google Analytics Code Snippet to the Clipboard</button>
-          <a id="before-code-snippet" href="#after-code-snippet">Skip to after the code snippet</a>
-          <pre>
+      <h2>Enhance Your Analytics</h2>
+      <p>
+        By default your analytics tool probably won't give you information on
+        these segments. However, you can use a small snippet of code to change
+        this.
+      </p>
+      <p>
+        For Google Analytics 4, add the following snippet to your site right
+        after the Google Analytics scripts (you can find{" "}
+        <a href="https://github.com/Grunet/a11y-analytics/blob/main/src/analytics.js">
+          an unminified version of the snippet on Github
+        </a>)
+      </p>
+      <button id="copyButton">
+        Copy the Google Analytics Code Snippet to the Clipboard
+      </button>
+      <a id="before-code-snippet" href="#after-code-snippet">
+        Skip to after the code snippet
+      </a>
+      <pre>
             <code id="codeSnippet" tabindex="0" role="region" aria-label="Code Snippet" aria-description="for the Google Analytics Integration">
               {codeBlock}
             </code>
-          </pre>
-          <a id="after-code-snippet" href="#before-code-snippet">Skip to before the code snippet</a>
-          <p>For every page load, you will start to find custom events named <q>resolvedAccessibilityData</q> that have the following parameters</p>
-          <ul>
-            <li>uses_keyboard [resolvedAccessibilityData]</li>
-            <li>prefers_reduced_motion [resolvedAccessibilityData]</li>
-            <li>prefers_color_scheme [resolvedAccessibilityData]</li>
-            <li>inverted_colors [resolvedAccessibilityData]</li>
-            <li>forced_colors [resolvedAccessibilityData]</li>
-            <li>prefers_contrast [resolvedAccessibilityData]</li>
-          </ul>
-          <p>Every other custom event will also now include these parameters (with their event name included instead).</p>
-          <p>You can then use these attributes to create the aforementioned segments.</p>
-          <p>From here it's up to you, but to get you started here are some ideas to explore</p>
-          <ul>
-            <li>Compare conversion rates between keyboard users and non-keyboard users</li>
-            <li>For pages with significant animations, compare visit duration between folks who prefer reduced motion vs folks who have not expressed a preference</li>
-            <li>Compare rage click counts between folks using forced colors vs folks who are not</li>
-          </ul>
-          <h2 id="contact-info">Contact Info</h2>
-          <p>And let me know what you find afterwards! You can find me on any of the following platforms:</p>
-          <ul>
-            <li><a href="https://github.com/Grunet/a11y-analytics/issues">Github Issues</a></li>
-            <li><a href="https://twitter.com/__grunet">My Twitter Profile</a></li>
-            <li><a href="https://www.reddit.com/user/__grunet">My Reddit Profile</a></li>
-          </ul>
-          <h2>Privacy Aspects</h2>
-          <p>Privacy is a critical part of any robust analytics solution. Here are some considerations when it comes to Analytics for Accessibility.</p>
+      </pre>
+      <a id="after-code-snippet" href="#before-code-snippet">
+        Skip to before the code snippet
+      </a>
+      <p>
+        For every page load, you will start to find custom events named{" "}
+        <q>resolvedAccessibilityData</q>{" "}
+        that have the following parameters (with /pathname replaced by the
+        pathname of the page)
+      </p>
+      <ul>
+        <li>uses_keyboard /pathname [resolvedAccessibilityData]</li>
+        <li>prefers_reduced_motion /pathname [resolvedAccessibilityData]</li>
+        <li>prefers_color_scheme /pathname [resolvedAccessibilityData]</li>
+        <li>inverted_colors /pathname [resolvedAccessibilityData]</li>
+        <li>forced_colors /pathname [resolvedAccessibilityData]</li>
+        <li>prefers_contrast /pathname [resolvedAccessibilityData]</li>
+      </ul>
+      <p>
+        Every other custom event will also now include these parameters (with
+        their event name included instead).
+      </p>
+      <p>
+        You can then use these attributes to create the aforementioned segments.
+      </p>
+      <p>
+        From here it's up to you, but to get you started here are some ideas to
+        explore
+      </p>
+      <ul>
+        <li>
+          Compare conversion rates between keyboard users and non-keyboard users
+        </li>
+        <li>
+          For pages with significant animations, compare visit duration between
+          folks who prefer reduced motion vs folks who have not expressed a
+          preference
+        </li>
+        <li>
+          Compare rage click counts between folks using forced colors vs folks
+          who are not
+        </li>
+      </ul>
+      <h2 id="contact-info">Contact Info</h2>
+      <p>
+        And let me know what you find afterwards! You can find me on any of the
+        following platforms:
+      </p>
+      <ul>
+        <li>
+          <a href="https://github.com/Grunet/a11y-analytics/issues">
+            Github Issues
+          </a>
+        </li>
+        <li>
+          <a href="https://twitter.com/__grunet">My Twitter Profile</a>
+        </li>
+        <li>
+          <a href="https://www.reddit.com/user/__grunet">My Reddit Profile</a>
+        </li>
+      </ul>
+      <h2>Privacy Aspects</h2>
+      <p>
+        Privacy is a critical part of any robust analytics solution. Here are
+        some considerations when it comes to Analytics for Accessibility.
+      </p>
 
-          <h3>Privacy Aspects of this Site</h3>
-          <p>This site is hosted on <a href="https://deno.com/deploy">Deno Deploy</a>, so they (and their subprocessors) most likely have access to your IP address, what browser you're using, its version, and what your operating system is. I don't know yet of any way to control that but <a href="https://www.reddit.com/r/Deno/comments/11id32r/deno_deploy_and_privacy_deep_dive/">I asked on Reddit about Deno Deploy's privacy posture</a>.</p>
-          <p>The app code running on it is completely ignoring those pieces of PII.</p>
+      <h3>Privacy Aspects of this Site</h3>
+      <p>
+        This site is hosted on{" "}
+        <a href="https://deno.com/deploy">Deno Deploy</a>, so they (and their
+        subprocessors) most likely have access to your IP address, what browser
+        you're using, its version, and what your operating system is. I don't
+        know yet of any way to control that but{" "}
+        <a href="https://www.reddit.com/r/Deno/comments/11id32r/deno_deploy_and_privacy_deep_dive/">
+          I asked on Reddit about Deno Deploy's privacy posture
+        </a>.
+      </p>
+      <p>
+        The app code running on it is completely ignoring those pieces of PII.
+      </p>
 
-          <p>This site uses client-side Google Analytics 4. I tried very hard (in an uphill battle) to anonymize all information sent to Google (via Google Tag Manager) and documented <a href="https://dev.to/grunet/how-to-maximize-user-privacy-when-using-google-analytics-4-4cd7">how I configured Google Analytics to be maximally privacy preserving in an article</a>.</p>
-          <p>The short version is that by default Google Analytics should not be persisting any data (though data may be sent to it). To change that activate the following button (there's no need to do this outside of my own testing)</p>
+      <p>
+        This site uses client-side Google Analytics 4. I tried very hard (in an
+        uphill battle) to anonymize all information sent to Google (via Google
+        Tag Manager) and documented{" "}
+        <a href="https://dev.to/grunet/how-to-maximize-user-privacy-when-using-google-analytics-4-4cd7">
+          how I configured Google Analytics to be maximally privacy preserving
+          in an article
+        </a>.
+      </p>
+      <p>
+        The short version is that by default Google Analytics should not be
+        persisting any data (though data may be sent to it). To change that
+        activate the following button (there's no need to do this outside of my
+        own testing)
+      </p>
 
-          <button id="enable-ga">Enable Google Analytics to Persist Data</button>
+      <button id="enable-ga">Enable Google Analytics to Persist Data</button>
 
-          <h3>Notes on Fingerprinting and Accessibility</h3>
-          <p>Device and user fingerprinting is a technique unscrupulous websites and tools use to track you and your activity across the internet, without requiring 3rd party cookies or any form of traditional tracking.</p>
-          <p>It works by using standard web APIs to measure a large number of characteristics about your device and your settings. Each individual characteristic on its own doesn't identify you, but narrows you down a little amongst all other users. The problem being when all of the characteristics are considered together, they end up narrowing down all the way to you specifically amongst all users (follow <a href="https://coveryourtracks.eff.org/">this link for more details on fingerprinting</a>).</p>
+      <h3>Notes on Fingerprinting and Accessibility</h3>
+      <p>
+        Device and user fingerprinting is a technique unscrupulous websites and
+        tools use to track you and your activity across the internet, without
+        requiring 3rd party cookies or any form of traditional tracking.
+      </p>
+      <p>
+        It works by using standard web APIs to measure a large number of
+        characteristics about your device and your settings. Each individual
+        characteristic on its own doesn't identify you, but narrows you down a
+        little amongst all other users. The problem being when all of the
+        characteristics are considered together, they end up narrowing down all
+        the way to you specifically amongst all users (follow{" "}
+        <a href="https://coveryourtracks.eff.org/">
+          this link for more details on fingerprinting
+        </a>).
+      </p>
 
-          <p>The web APIs in use by Analytics for Accessibility are also susceptible to being abused as fingerprinting characteristics. This is not a hypothetical, <a href="https://github.com/fingerprintjs/fingerprintjs/tree/master/src/sources">there are solutions available today that fingerprint based off of accessibility characteristics</a>.</p>
-          <p>Sadly, there is no direct defense to fingerprinting that I'm aware of. The best that can be done is to find the offenders and block them (e.g. like <a href="https://disconnect.me/disconnect">the tracker blocking company Disconnect</a> attempts to do)</p>
+      <p>
+        The web APIs in use by Analytics for Accessibility are also susceptible
+        to being abused as fingerprinting characteristics. This is not a
+        hypothetical,{" "}
+        <a href="https://github.com/fingerprintjs/fingerprintjs/tree/master/src/sources">
+          there are solutions available today that fingerprint based off of
+          accessibility characteristics
+        </a>.
+      </p>
+      <p>
+        Sadly, there is no direct defense to fingerprinting that I'm aware of.
+        The best that can be done is to find the offenders and block them (e.g.
+        like{" "}
+        <a href="https://disconnect.me/disconnect">
+          the tracker blocking company Disconnect
+        </a>{" "}
+        attempts to do)
+      </p>
 
-          <h2>Accessibility Statement</h2>
-          <p>This site (which is just this 1 page) is intentionally minimalistic to avoid accidentally introducing issues.</p>
-          <p>The horizontal scrolling is intentional as I didn't want to wrap the code snippet. Since it's not important to read it, I assumed this was okay.</p>
-          <p>If you notice anything else off <a href="#contact-info">let me know via one of the above channels</a> and I will aim to fix it.</p>
-
-        </main>
+      <h2>Accessibility Statement</h2>
+      <p>
+        This site (which is just this 1 page) is intentionally minimalistic to
+        avoid accidentally introducing issues.
+      </p>
+      <p>
+        The horizontal scrolling is intentional as I didn't want to wrap the
+        code snippet. Since it's not important to read it, I assumed this was
+        okay.
+      </p>
+      <p>
+        If you notice anything else off{" "}
+        <a href="#contact-info">let me know via one of the above channels</a>
+        {" "}
+        and I will aim to fix it.
+      </p>
+    </main>
   );
 }
 
-const minifiedSnippet = `(()=>{function y({getGlobal:r,setGlobal:u,translateArguments:f,onResolutionCallback:a}){let l={},m=r();u(function(...t){let i=f({originalArguments:t,accessibilityEventParameters:l});m.apply(window,i)});try{s({mediaFeature:"prefers-reduced-motion",possibleValues:["no-preference","reduce"],onResolutionCallback:a}),s({mediaFeature:"prefers-color-scheme",possibleValues:["light","dark"],onResolutionCallback:a}),s({mediaFeature:"inverted-colors",possibleValues:["none","inverted"],onResolutionCallback:a}),s({mediaFeature:"forced-colors",possibleValues:["none","active"],onResolutionCallback:a}),s({mediaFeature:"prefers-contrast",possibleValues:["no-preference","more","less","custom"],onResolutionCallback:a})}catch(e){console.error(e)}(function(){try{let t=setInterval(function(){let o=document.querySelector(":focus-visible");if(!o)return;let n=o.tagName.toUpperCase();if(n==="INPUT"||n==="TEXTAREA"||o.contentEditable==="true")return;let c="uses_keyboard",d=!0;l[c]=d,a&&a({name:c,data:{resolvedValue:d}}),clearInterval(t)},500)}catch(t){console.error(t)}})();function s({mediaFeature:e,possibleValues:t,onResolutionCallback:i}){let{adjustedFeatureName:o,value:n,error:c}=p({mediaFeature:e,possibleValues:t});c||i&&i({name:o,data:{resolvedValue:n}})}function p({mediaFeature:e,possibleValues:t}){if(v({mediaFeature:e})===!1)return{error:new Error(\`Unsupported media feature \${e}\`)};let o=t.map(d=>({possibleValue:d,mediaQueryResult:window.matchMedia(\`(\${e}: \${d})\`).matches})).find(({_:d,mediaQueryResult:w})=>w===!0);if(o===void 0)return console.error(\`Something went wrong. Is there a new \${e} allowed value not accounted for here?\`),{error:new Error(\`No media query resolved to true for \${e}\`)};let n=e.replaceAll("-","_"),c=o.possibleValue;return l[n]=c,{adjustedFeatureName:n,value:c}}function v({mediaFeature:e}){return window.matchMedia(\`not all and (\${e}), (\${e})\`).matches?!0:(console.warn(\`Your browser doesn't support \${e} yet\`),!1)}}function b(){y({getGlobal:()=>window.gtag,setGlobal:r=>{window.gtag=r},translateArguments:({originalArguments:r,accessibilityEventParameters:u})=>{let f=[...r];if(r.length>=3){let a=r[2],l=r[1],m=Object.fromEntries(Object.entries(u).map(([p,v])=>[\`\${p} [\${l}]\`,v])),s={...a,...m};f[2]=s}return f},onResolutionCallback:({name:r,data:{resolvedValue:u}})=>{window.gtag("event","resolvedAccessibilityData",{[\`\${r} [resolvedAccessibilityData]\`]:u})}})}b();})();`;
+const minifiedSnippet =
+  `(()=>{function w({getGlobal:r,setGlobal:l,translateArguments:i,onResolutionCallback:a}){let f={},m=r();l(function(...t){let d=i({originalArguments:t,accessibilityEventParameters:f});m.apply(window,d)});try{s({mediaFeature:"prefers-reduced-motion",possibleValues:["no-preference","reduce"],onResolutionCallback:a}),s({mediaFeature:"prefers-color-scheme",possibleValues:["light","dark"],onResolutionCallback:a}),s({mediaFeature:"inverted-colors",possibleValues:["none","inverted"],onResolutionCallback:a}),s({mediaFeature:"forced-colors",possibleValues:["none","active"],onResolutionCallback:a}),s({mediaFeature:"prefers-contrast",possibleValues:["no-preference","more","less","custom"],onResolutionCallback:a})}catch(e){console.error(e)}(function(){try{let t=setInterval(function(){let o=document.querySelector(":focus-visible");if(!o)return;let n=o.tagName.toUpperCase();if(n==="INPUT"||n==="TEXTAREA"||o.contentEditable==="true")return;let c="uses_keyboard",u=!0;f[c]=u,a&&a({name:c,data:{resolvedValue:u}}),clearInterval(t)},500)}catch(t){console.error(t)}})();function s({mediaFeature:e,possibleValues:t,onResolutionCallback:d}){let{adjustedFeatureName:o,value:n,error:c}=p({mediaFeature:e,possibleValues:t});c||d&&d({name:o,data:{resolvedValue:n}})}function p({mediaFeature:e,possibleValues:t}){if(v({mediaFeature:e})===!1)return{error:new Error(\`Unsupported media feature \${e}\`)};let o=t.map(u=>({possibleValue:u,mediaQueryResult:window.matchMedia(\`(\${e}: \${u})\`).matches})).find(({_:u,mediaQueryResult:y})=>y===!0);if(o===void 0)return console.error(\`Something went wrong. Is there a new \${e} allowed value not accounted for here?\`),{error:new Error(\`No media query resolved to true for \${e}\`)};let n=e.replaceAll("-","_"),c=o.possibleValue;return f[n]=c,{adjustedFeatureName:n,value:c}}function v({mediaFeature:e}){return window.matchMedia(\`not all and (\${e}), (\${e})\`).matches?!0:(console.warn(\`Your browser doesn't support \${e} yet\`),!1)}}function h(){w({getGlobal:()=>window.gtag,setGlobal:r=>{window.gtag=r},translateArguments:({originalArguments:r,accessibilityEventParameters:l})=>{let i=[...r];if(r.length>=3){let a=r[2],f=r[1],m=Object.fromEntries(Object.entries(l).map(([p,v])=>[\`\${p} [\${f}]\`,v])),s={...a,...m};i[2]=s}return i},onResolutionCallback:({name:r,data:{resolvedValue:l}})=>{let i=new URL(window.location.href).pathname;window.gtag("event","resolvedAccessibilityData",{[\`\${r} \${i} [resolvedAccessibilityData]\`]:l})}})}h();})();`;
 const codeBlock = `<script type="module">${minifiedSnippet}</script>`;
 
 function handler(req) {
-
-  const app = renderSSR(<App codeBlock={codeBlock}/>);
-  const { body } = Helmet.SSR(app)
+  const app = renderSSR(<App codeBlock={codeBlock} />);
+  const { body } = Helmet.SSR(app);
 
   const html = `
     <!DOCTYPE html>

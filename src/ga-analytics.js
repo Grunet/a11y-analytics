@@ -37,7 +37,7 @@ function decorateGtagWithAccessibilityInformation() {
       const pathname = new URL(window.location.href).pathname;
 
       window.gtag("event", "resolvedAccessibilityData", {
-        [`${name} ${pathname} [resolvedAccessibilityData]`]: resolvedValue,
+        [`${name} \{${pathname}\} [resolvedAccessibilityData]`]: resolvedValue,
       });
     },
   });

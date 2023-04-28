@@ -32,16 +32,16 @@ function App({codeBlock}) {
             </code>
           </pre>
           <a id="after-code-snippet" href="#before-code-snippet">Skip to before the code snippet</a>
-          <p>For every page load, you will start to find custom events named <q>resolvedAccessibilityData</q> for each of the following attributes</p>
+          <p>For every page load, you will start to find custom events named <q>resolvedAccessibilityData</q> that have the following parameters</p>
           <ul>
-            <li>uses_keyboard</li>
-            <li>prefers_reduced_motion</li>
-            <li>prefers_color_scheme</li>
-            <li>inverted_colors</li>
-            <li>forced_colors</li>
-            <li>prefers_contrast</li>
+            <li>uses_keyboard [resolvedAccessibilityData]</li>
+            <li>prefers_reduced_motion [resolvedAccessibilityData]</li>
+            <li>prefers_color_scheme [resolvedAccessibilityData]</li>
+            <li>inverted_colors [resolvedAccessibilityData]</li>
+            <li>forced_colors [resolvedAccessibilityData]</li>
+            <li>prefers_contrast [resolvedAccessibilityData]</li>
           </ul>
-          <p>Every other custom event will also now include these attributes.</p>
+          <p>Every other custom event will also now include these parameters (with their event name included instead).</p>
           <p>You can then use these attributes to create the aforementioned segments.</p>
           <p>From here it's up to you, but to get you started here are some ideas to explore</p>
           <ul>

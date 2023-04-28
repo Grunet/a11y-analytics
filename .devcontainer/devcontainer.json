@@ -15,7 +15,9 @@
 				// Enables Deno linting for the project
 				"deno.lint": true,
 				// Sets Deno as the default formatter for the project
-				"editor.defaultFormatter": "denoland.vscode-deno"
+				"editor.defaultFormatter": "denoland.vscode-deno",
+				// Enables format on save
+				"editor.formatOnSave": true
 			},
 
 			// Add the IDs of extensions you want installed when the container is created.

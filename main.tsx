@@ -75,17 +75,17 @@ function App({ codeBlock }) {
         pathname of the page)
       </p>
       <ul>
-        <li>uses_keyboard &#123/pathname&#125 [resolvedAccessibilityData]</li>
+        <li>uses_keyboard {"{"}/pathname{"}"} [resolvedAccessibilityData]</li>
         <li>
-          prefers_reduced_motion &#123/pathname&#125 [resolvedAccessibilityData]
+          prefers_reduced_motion {"{"}/pathname{"}"} [resolvedAccessibilityData]
         </li>
         <li>
-          prefers_color_scheme &#123/pathname&#125 [resolvedAccessibilityData]
+          prefers_color_scheme {"{"}/pathname{"}"} [resolvedAccessibilityData]
         </li>
-        <li>inverted_colors &#123/pathname&#125 [resolvedAccessibilityData]</li>
-        <li>forced_colors &#123/pathname&#125 [resolvedAccessibilityData]</li>
+        <li>inverted_colors {"{"}/pathname{"}"} [resolvedAccessibilityData]</li>
+        <li>forced_colors {"{"}/pathname{"}"} [resolvedAccessibilityData]</li>
         <li>
-          prefers_contrast &#123/pathname&#125 [resolvedAccessibilityData]
+          prefers_contrast {"{"}/pathname{"}"} [resolvedAccessibilityData]
         </li>
       </ul>
       <p>

@@ -1,6 +1,6 @@
 # Changelog
 
-## 0.1.3
+## 0.2.0
 
 - Remove resolvedAccessibilityData page load event due to difficulties in making
   it fit inside the GA4 parameter name length limits

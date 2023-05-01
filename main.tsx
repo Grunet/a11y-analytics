@@ -69,31 +69,25 @@ function App({ codeBlock }) {
         Skip to before the code snippet
       </a>
       <p>
-        For every page load, you will start to find custom events named{" "}
-        <q>resolvedAccessibilityData</q>{" "}
-        that have the following parameters (with /pathname replaced by the
-        pathname of the page)
+        Every custom event will now have the following parameters added to them
+        (with nameOfCustomEvent replaced by the custom event's name)
       </p>
       <ul>
-        <li>uses_keyboard {"{"}/pathname{"}"} [resolvedAccessibilityData]</li>
+        <li>uses_keyboard [nameOfCustomEvent]</li>
         <li>
-          prefers_reduced_motion {"{"}/pathname{"}"} [resolvedAccessibilityData]
+          prefers_reduced_motion [nameOfCustomEvent]
         </li>
         <li>
-          prefers_color_scheme {"{"}/pathname{"}"} [resolvedAccessibilityData]
+          prefers_color_scheme [nameOfCustomEvent]
         </li>
-        <li>inverted_colors {"{"}/pathname{"}"} [resolvedAccessibilityData]</li>
-        <li>forced_colors {"{"}/pathname{"}"} [resolvedAccessibilityData]</li>
+        <li>inverted_colors [nameOfCustomEvent]</li>
+        <li>forced_colors [nameOfCustomEvent]</li>
         <li>
-          prefers_contrast {"{"}/pathname{"}"} [resolvedAccessibilityData]
+          prefers_contrast [nameOfCustomEvent]
         </li>
       </ul>
       <p>
-        Every other custom event will also now include these parameters (with
-        their event name included instead).
-      </p>
-      <p>
-        You can then use these attributes to create the aforementioned segments.
+        You can then use these parameters to create the aforementioned segments.
       </p>
       <p>
         From here it's up to you, but to get you started here are some ideas to

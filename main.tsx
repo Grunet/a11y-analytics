@@ -69,31 +69,25 @@ function App({ codeBlock }) {
         Skip to before the code snippet
       </a>
       <p>
-        For every page load, you will start to find custom events named{" "}
-        <q>resolvedAccessibilityData</q>{" "}
-        that have the following parameters (with /pathname replaced by the
-        pathname of the page)
+        Every custom event will now have the following parameters added to them
+        (with nameOfCustomEvent replaced by the custom event's name)
       </p>
       <ul>
-        <li>uses_keyboard {"{"}/pathname{"}"} [resolvedAccessibilityData]</li>
+        <li>uses_keyboard [nameOfCustomEvent]</li>
         <li>
-          prefers_reduced_motion {"{"}/pathname{"}"} [resolvedAccessibilityData]
+          prefers_reduced_motion [nameOfCustomEvent]
         </li>
         <li>
-          prefers_color_scheme {"{"}/pathname{"}"} [resolvedAccessibilityData]
+          prefers_color_scheme [nameOfCustomEvent]
         </li>
-        <li>inverted_colors {"{"}/pathname{"}"} [resolvedAccessibilityData]</li>
-        <li>forced_colors {"{"}/pathname{"}"} [resolvedAccessibilityData]</li>
+        <li>inverted_colors [nameOfCustomEvent]</li>
+        <li>forced_colors [nameOfCustomEvent]</li>
         <li>
-          prefers_contrast {"{"}/pathname{"}"} [resolvedAccessibilityData]
+          prefers_contrast [nameOfCustomEvent]
         </li>
       </ul>
       <p>
-        Every other custom event will also now include these parameters (with
-        their event name included instead).
-      </p>
-      <p>
-        You can then use these attributes to create the aforementioned segments.
+        You can then use these parameters to create the aforementioned segments.
       </p>
       <p>
         From here it's up to you, but to get you started here are some ideas to
@@ -228,7 +222,7 @@ function App({ codeBlock }) {
 }
 
 const minifiedSnippet =
-  `(()=>{function w({getGlobal:r,setGlobal:l,translateArguments:i,onResolutionCallback:a}){let f={},m=r();l(function(...t){let d=i({originalArguments:t,accessibilityEventParameters:f});m.apply(window,d)});try{s({mediaFeature:"prefers-reduced-motion",possibleValues:["no-preference","reduce"],onResolutionCallback:a}),s({mediaFeature:"prefers-color-scheme",possibleValues:["light","dark"],onResolutionCallback:a}),s({mediaFeature:"inverted-colors",possibleValues:["none","inverted"],onResolutionCallback:a}),s({mediaFeature:"forced-colors",possibleValues:["none","active"],onResolutionCallback:a}),s({mediaFeature:"prefers-contrast",possibleValues:["no-preference","more","less","custom"],onResolutionCallback:a})}catch(e){console.error(e)}(function(){try{let t=setInterval(function(){let o=document.querySelector(":focus-visible");if(!o)return;let n=o.tagName.toUpperCase();if(n==="INPUT"||n==="TEXTAREA"||o.contentEditable==="true")return;let c="uses_keyboard",u=!0;f[c]=u,a&&a({name:c,data:{resolvedValue:u}}),clearInterval(t)},500)}catch(t){console.error(t)}})();function s({mediaFeature:e,possibleValues:t,onResolutionCallback:d}){let{adjustedFeatureName:o,value:n,error:c}=p({mediaFeature:e,possibleValues:t});c||d&&d({name:o,data:{resolvedValue:n}})}function p({mediaFeature:e,possibleValues:t}){if(v({mediaFeature:e})===!1)return{error:new Error(\`Unsupported media feature \${e}\`)};let o=t.map(u=>({possibleValue:u,mediaQueryResult:window.matchMedia(\`(\${e}: \${u})\`).matches})).find(({_:u,mediaQueryResult:y})=>y===!0);if(o===void 0)return console.error(\`Something went wrong. Is there a new \${e} allowed value not accounted for here?\`),{error:new Error(\`No media query resolved to true for \${e}\`)};let n=e.replaceAll("-","_"),c=o.possibleValue;return f[n]=c,{adjustedFeatureName:n,value:c}}function v({mediaFeature:e}){return window.matchMedia(\`not all and (\${e}), (\${e})\`).matches?!0:(console.warn(\`Your browser doesn't support \${e} yet\`),!1)}}function h(){w({getGlobal:()=>window.gtag,setGlobal:r=>{window.gtag=r},translateArguments:({originalArguments:r,accessibilityEventParameters:l})=>{let i=[...r];if(r.length>=3){let a=r[2],f=r[1],m=Object.fromEntries(Object.entries(l).map(([p,v])=>[\`\${p} [\${f}]\`,v])),s={...a,...m};i[2]=s}return i},onResolutionCallback:({name:r,data:{resolvedValue:l}})=>{let i=new URL(window.location.href).pathname;window.gtag("event","resolvedAccessibilityData",{[\`\${r} {\${i}} [resolvedAccessibilityData]\`]:l})}})}h();})();`;
+  `(()=>{function m({getGlobal:r,setGlobal:i,translateArguments:c}){let a={},l=r();i(function(...t){let f=c({originalArguments:t,accessibilityEventParameters:a});l.apply(window,f)});try{o({mediaFeature:"prefers-reduced-motion",possibleValues:["no-preference","reduce"]}),o({mediaFeature:"prefers-color-scheme",possibleValues:["light","dark"]}),o({mediaFeature:"inverted-colors",possibleValues:["none","inverted"]}),o({mediaFeature:"forced-colors",possibleValues:["none","active"]}),o({mediaFeature:"prefers-contrast",possibleValues:["no-preference","more","less","custom"]})}catch(e){console.error(e)}(function(){try{let t=setInterval(function(){let n=document.querySelector(":focus-visible");if(!n)return;let s=n.tagName.toUpperCase();s==="INPUT"||s==="TEXTAREA"||n.contentEditable!=="true"&&(a["uses-keyboard"]=!0,clearInterval(t))},500)}catch(t){console.error(t)}})();function o({mediaFeature:e,possibleValues:t}){u({mediaFeature:e,possibleValues:t})}function u({mediaFeature:e,possibleValues:t}){if(d({mediaFeature:e})===!1)return;let n=t.map(s=>({possibleValue:s,mediaQueryResult:window.matchMedia(\`(\${e}: \${s})\`).matches})).find(({_:s,mediaQueryResult:p})=>p===!0);if(n===void 0){console.error(\`Something went wrong. Is there a new \${e} allowed value not accounted for here?\`);return}a[e]=n.possibleValue}function d({mediaFeature:e}){return window.matchMedia(\`not all and (\${e}), (\${e})\`).matches?!0:(console.warn(\`Your browser doesn't support \${e} yet\`),!1)}}function b(){m({getGlobal:()=>window.gtag,setGlobal:r=>{window.gtag=r},translateArguments:({originalArguments:r,accessibilityEventParameters:i})=>{let c=[...r];if(r.length>=3){let a=r[2],l=r[1],o=Object.fromEntries(Object.entries(i).map(([d,e])=>[\`\${d} [\${l}]\`.replaceAll("-","_"),e])),u={...a,...o};c[2]=u}return c}})}b();})();`;
 const codeBlock = `<script type="module">${minifiedSnippet}</script>`;
 
 function handler(req) {

@@ -1,12 +1,19 @@
 # Changelog
 
+## 0.2.0
+
+- Remove resolvedAccessibilityData page load event due to difficulties in making
+  it fit inside the GA4 parameter name length limits
+
 ## 0.1.2
 
-- Include the pathname in the resolvedAccessibilityData parameter so it's possible to count the starts of a journey per page
+- Include the pathname in the resolvedAccessibilityData parameter so it's
+  possible to count the starts of a journey per page
 
 ## 0.1.1
 
-- Inline the event name into the parameters for Google Analytics to unblock reporting
+- Inline the event name into the parameters for Google Analytics to unblock
+  reporting
 
 ## 0.1.0
 

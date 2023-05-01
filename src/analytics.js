@@ -70,10 +70,7 @@ function decorateCustomEventGlobalWithAccessibilityInformation(
           return;
         }
 
-        const adjustedFeatureName = "uses_keyboard"; // Google Analytics requires underscores instead of dashes for its custom dimensions
-        const resolvedValue = true;
-
-        accessibilityEventParameters[adjustedFeatureName] = resolvedValue;
+        accessibilityEventParameters["uses-keyboard"] = true;
 
         clearInterval(intervalId);
       }, 500);
@@ -93,9 +90,7 @@ function decorateCustomEventGlobalWithAccessibilityInformation(
     { mediaFeature, possibleValues },
   ) {
     if (checkIfBrowserSupportsMediaFeature({ mediaFeature }) === false) {
-      return {
-        error: new Error(`Unsupported media feature ${mediaFeature}`),
-      };
+      return;
     }
 
     const resolvedMediaQueries = possibleValues.map((possibleValue) => {
@@ -116,24 +111,11 @@ function decorateCustomEventGlobalWithAccessibilityInformation(
         `Something went wrong. Is there a new ${mediaFeature} allowed value not accounted for here?`,
       );
 
-      return {
-        error: new Error(`No media query resolved to true for ${mediaFeature}`),
-      };
+      return;
     }
 
-    const analyticsProviderSafeMediaFeatureName = mediaFeature.replaceAll(
-      "-",
-      "_",
-    ); // Google Analytics requires underscores instead of dashes for its custom dimensions
-    const preferredValue = mediaQueryThatResolvedToTrue.possibleValue;
-
-    accessibilityEventParameters[analyticsProviderSafeMediaFeatureName] =
-      preferredValue;
-
-    return {
-      adjustedFeatureName: analyticsProviderSafeMediaFeatureName,
-      value: preferredValue,
-    };
+    accessibilityEventParameters[mediaFeature] =
+      mediaQueryThatResolvedToTrue.possibleValue;
   }
 
   function checkIfBrowserSupportsMediaFeature({ mediaFeature }) {

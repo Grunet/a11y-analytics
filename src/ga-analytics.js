@@ -19,7 +19,15 @@ function decorateGtagWithAccessibilityInformation() {
         const eventName = originalArguments[1];
         const disambiguatedAccessibilityEventParameters = Object.fromEntries(
           Object.entries(accessibilityEventParameters).map(([key, value]) => {
-            return [`${key} [${eventName}]`, value];
+            const newKey = `${key} [${eventName}]`.replaceAll(
+              "-",
+              "_",
+            ); // Google Analytics requires underscores instead of dashes for its custom dimensions
+
+            return [
+              newKey,
+              value,
+            ];
           }),
         );
 

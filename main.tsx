@@ -252,6 +252,20 @@ function handler(req) {
           gtag('config', 'G-Q5R7J81KZZ');
         </script>
         <script type="module">
+          globalThis.a11y_analytics_config = {
+            ga: {
+              callbacks: {
+                onSyncItemsResolved() {
+                  gtag('event', 'syncItems landing page');
+                },
+                onUsesKeyboardResolved() {
+                  gtag('event', 'usesKeyboard landing page');
+                },
+              }
+            }
+          }
+        </script>
+        <script type="module">
           ${minifiedSnippet}
         </script>
         <style>

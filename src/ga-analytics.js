@@ -41,6 +41,10 @@ function decorateGtagWithAccessibilityInformation() {
 
       return translatedArguments;
     },
+    syncItemsCallback: globalThis.a11y_analytics_config?.ga?.callbacks
+      ?.onSyncItemsResolved,
+    usesKeyboardCallback: globalThis.a11y_analytics_config?.ga?.callbacks
+      ?.onUsesKeyboardResolved,
   });
 }
 

@@ -11,36 +11,43 @@ function decorateGtagWithAccessibilityInformation() {
     translateArguments: (
       { originalArguments, accessibilityEventParameters },
     ) => {
+      if (originalArguments[0] !== "event") {
+        return originalArguments;
+      }
+
+      const eventName = originalArguments[1];
+
+      const disambiguatedAccessibilityEventParameters = Object.fromEntries(
+        Object.entries(accessibilityEventParameters).map(([key, value]) => {
+          const newKey = `${key} [${eventName}]`.replaceAll(
+            "-",
+            "_",
+          ); // Google Analytics requires underscores instead of dashes for its custom dimensions
+
+          return [
+            newKey,
+            value,
+          ];
+        }),
+      );
+
+      const originalParameters = originalArguments[2];
+
+      const translatedParameters = {
+        ...originalParameters,
+        ...disambiguatedAccessibilityEventParameters,
+      };
+
       const translatedArguments = [...originalArguments]; // TODO - replace with structuredClone for a true deep copy once it has better browser support
 
-      if (originalArguments.length >= 3) {
-        const originalParameters = originalArguments[2];
-
-        const eventName = originalArguments[1];
-        const disambiguatedAccessibilityEventParameters = Object.fromEntries(
-          Object.entries(accessibilityEventParameters).map(([key, value]) => {
-            const newKey = `${key} [${eventName}]`.replaceAll(
-              "-",
-              "_",
-            ); // Google Analytics requires underscores instead of dashes for its custom dimensions
-
-            return [
-              newKey,
-              value,
-            ];
-          }),
-        );
-
-        const translatedParameters = {
-          ...originalParameters,
-          ...disambiguatedAccessibilityEventParameters,
-        };
-
-        translatedArguments[2] = translatedParameters;
-      }
+      translatedArguments[2] = translatedParameters;
 
       return translatedArguments;
     },
+    syncItemsCallback: globalThis.a11y_analytics_config?.ga?.callbacks
+      ?.onSyncItemsResolved,
+    usesKeyboardCallback: globalThis.a11y_analytics_config?.ga?.callbacks
+      ?.onUsesKeyboardResolved,
   });
 }
 

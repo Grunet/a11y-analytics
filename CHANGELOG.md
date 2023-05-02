@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.3.0
+
+- Allow for consumers to inject callbacks that fire once all media features have been resolved and another once keyboard detection has resolved
+
 ## 0.2.0
 
 - Remove resolvedAccessibilityData page load event due to difficulties in making

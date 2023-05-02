@@ -1,5 +1,11 @@
 function decorateCustomEventGlobalWithAccessibilityInformation(
-  { getGlobal, setGlobal, translateArguments },
+  {
+    getGlobal,
+    setGlobal,
+    translateArguments,
+    syncItemsCallback,
+    usesKeyboardCallback,
+  },
 ) {
   const accessibilityEventParameters = {};
   const oldAnalyticsGlobal = getGlobal();
@@ -46,6 +52,10 @@ function decorateCustomEventGlobalWithAccessibilityInformation(
       mediaFeature: "prefers-contrast",
       possibleValues: ["no-preference", "more", "less", "custom"],
     });
+
+    if (syncItemsCallback) {
+      syncItemsCallback();
+    }
   } catch (error) {
     console.error(error);
   }
@@ -73,6 +83,10 @@ function decorateCustomEventGlobalWithAccessibilityInformation(
         accessibilityEventParameters["uses-keyboard"] = true;
 
         clearInterval(intervalId);
+
+        if (usesKeyboardCallback) {
+          usesKeyboardCallback();
+        }
       }, 500);
     } catch (error) {
       console.error(error);

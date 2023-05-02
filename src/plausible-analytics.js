@@ -13,21 +13,20 @@ function decoratePlausibleWithAccessibilityInformation() {
     ) => {
       const translatedArguments = [...originalArguments]; // TODO - replace with structuredClone for a true deep copy once it has better browser support
 
-      if (originalArguments.length >= 2) {
-        const originalOptions = originalArguments[1];
-        const originalProps = originalOptions?.props;
+      const originalOptions = originalArguments[1];
+      const originalProps = originalOptions?.props;
 
-        const translatedProps = {
-          ...originalProps,
-          ...accessibilityEventParameters,
-        };
-        const translatedOptions = {
-          ...originalOptions,
-          ...{ props: translatedProps },
-        };
+      const translatedProps = {
+        ...originalProps,
+        ...accessibilityEventParameters,
+      };
 
-        translatedArguments[1] = translatedOptions;
-      }
+      const translatedOptions = {
+        ...originalOptions,
+        ...{ props: translatedProps },
+      };
+
+      translatedArguments[1] = translatedOptions;
 
       return translatedArguments;
     },

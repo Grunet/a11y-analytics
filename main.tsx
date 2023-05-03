@@ -2,13 +2,25 @@ import { serve } from "https://deno.land/std@0.140.0/http/server.ts";
 
 import { render as renderLandingPage } from "./website/root.tsx";
 
-function handler(req) {
-  const { html } = renderLandingPage();
+function handler(req: Request) {
+  const method = req.method;
+  const pathname = (new URL(req.url)).pathname;
 
-  return new Response(html, {
-    headers: {
-      "content-type": "text/html",
-    },
+  if (method === "GET") {
+    if (pathname === "/") {
+      const { html } = renderLandingPage();
+
+      return new Response(html, {
+        headers: {
+          "content-type": "text/html",
+        },
+      });
+    }
+  }
+
+  return new Response("Resource not found", {
+    status: 404,
+    statusText: "Not Found",
   });
 }
 

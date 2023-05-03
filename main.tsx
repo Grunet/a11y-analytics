@@ -18,7 +18,7 @@ function handler(req: Request) {
     }
   }
 
-  return new Response("Resource not found", {
+  return new Response("Page not found", {
     status: 404,
     statusText: "Not Found",
   });

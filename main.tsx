@@ -17,7 +17,7 @@ import {
 function App({ codeBlock }) {
   return (
     <main>
-      <h1>Analytics for Accessibility ${test()}</h1>
+      <h1>Analytics for Accessibility {`${test()}`}</h1>
       <p>
         How your users experience your websites matters. That's why you use
         analytics to better understand their behaviors and improve their

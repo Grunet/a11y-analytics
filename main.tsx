@@ -5,6 +5,9 @@
 /// <reference lib="deno.ns" />
 
 import { serve } from "https://deno.land/std@0.140.0/http/server.ts";
+
+import { test } from "./website/root.tsx";
+
 import {
   h,
   Helmet,
@@ -14,7 +17,7 @@ import {
 function App({ codeBlock }) {
   return (
     <main>
-      <h1>Analytics for Accessibility</h1>
+      <h1>Analytics for Accessibility ${test()}</h1>
       <p>
         How your users experience your websites matters. That's why you use
         analytics to better understand their behaviors and improve their

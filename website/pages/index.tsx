@@ -10,8 +10,8 @@ import {
   renderSSR,
 } from "https://deno.land/x/nano_jsx@v0.0.36/mod.ts";
 
-import { getCommonHeadChildren } from "./common/head.ts";
-import { getSharedStyleTag } from "./common/styles.ts";
+import { getCommonHeadChildren } from "./../common/head.ts";
+import { getSharedStyleTag } from "./../common/styles.ts";
 
 function App({ codeBlock }) {
   return (

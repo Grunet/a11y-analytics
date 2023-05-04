@@ -10,6 +10,7 @@ import {
   renderSSR,
 } from "https://deno.land/x/nano_jsx@v0.0.36/mod.ts";
 
+import { getCommonHeadChildren } from "./common/head.ts";
 import { getSharedStyleTag } from "./common/styles.ts";
 
 function App({ codeBlock }) {
@@ -234,10 +235,13 @@ function render() {
     <!DOCTYPE html>
     <html lang="en">
       <head>
-        <title>Analytics for Accessibility</title>
-        <meta name="description" content="An introduction to using analytics to improve on a website or web app's accessibility" >
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        ${
+    getCommonHeadChildren({
+      title: "Analytics for Accessibility",
+      description:
+        "An introduction to using analytics to improve on a website or web app's accessibility",
+    })
+  }
         <!-- Google tag (gtag.js) -->
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q5R7J81KZZ"></script>
         <script>

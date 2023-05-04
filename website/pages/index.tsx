@@ -127,6 +127,18 @@ function App({ codeBlock }) {
           <a href="https://www.reddit.com/user/__grunet">My Reddit Profile</a>
         </li>
       </ul>
+      <h2>The Future</h2>
+      <p>
+        The aspects of disabled experience that can be currently captured are
+        limited in scope to what Javascript exposes. However that doesn't
+        necessarily have to be the case.
+      </p>
+      <p>
+        <a href="/future/">
+          A way to capture info on all disabled experiences in a
+          privacy-conscious manner is outlined in this article.
+        </a>
+      </p>
       <h2>Privacy Aspects</h2>
       <p>
         Privacy is a critical part of any robust analytics solution. Here are
@@ -205,8 +217,8 @@ function App({ codeBlock }) {
 
       <h2>Accessibility Statement</h2>
       <p>
-        This site (which is just this 1 page) is intentionally minimalistic to
-        avoid accidentally introducing issues.
+        This site is intentionally minimalistic to avoid accidentally
+        introducing issues.
       </p>
       <p>
         The horizontal scrolling is intentional as I didn't want to wrap the

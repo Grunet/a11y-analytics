@@ -205,8 +205,8 @@ function App({ codeBlock }) {
 
       <h2>Accessibility Statement</h2>
       <p>
-        This site (which is just this 1 page) is intentionally minimalistic to
-        avoid accidentally introducing issues.
+        This site is intentionally minimalistic to avoid accidentally
+        introducing issues.
       </p>
       <p>
         The horizontal scrolling is intentional as I didn't want to wrap the

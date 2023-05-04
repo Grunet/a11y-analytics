@@ -10,6 +10,8 @@ import {
   renderSSR,
 } from "https://deno.land/x/nano_jsx@v0.0.36/mod.ts";
 
+import { getSharedStyleTag } from "./shared/styles.ts";
+
 function App({ codeBlock }) {
   return (
     <main>
@@ -267,34 +269,8 @@ function render() {
         <script type="module">
           ${minifiedSnippet}
         </script>
+        ${getSharedStyleTag()}
         <style>
-            body {
-                background-color: rebeccapurple;
-                color: #f0e8e8;
-                font-family: Verdana;
-            }
-
-            :focus {
-              border-style: dashed;
-              border-width: 0.25rem;
-            }
-            
-            button {
-              height: 4rem;
-            }
-
-            button:focus {
-              border-color: black;
-            }
-
-            a {
-              color: yellow
-            }
-
-            a:visited {
-              color: white
-            }
-
             pre {
               margin-block-start: 2rem;
               margin-block-end: 2rem;

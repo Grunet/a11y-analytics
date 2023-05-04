@@ -5,6 +5,8 @@ function getSharedStyleTag() {
         background-color: rebeccapurple;
         color: #f0e8e8;
         font-family: Verdana;
+
+        max-width: 80ch;
     }
 
     :focus {

@@ -2,7 +2,7 @@ import { getCommonHeadChildren } from "../../common/head.ts";
 import { getSharedStyleTag } from "../../common/styles.ts";
 
 const bodyContents =
-  `<h1 id="from-analytics-for-accessibility-to-money-for-disabled-people">From Analytics for Accessibility To Money for Disabled People</h1>
+  `<h1 id="from-analytics-for-accessibility-to-money-for-disabled-people">From Analytics for Accessibility to Money for Disabled People</h1>
 <p>Analytics for Accessibility today is limited in what it can capture.</p>
 <p>However, this isn’t a hard limit. In fact, it should be possible to extend Analytics for Accessibility and make money for disabled people at the same time.</p>
 <p>This article goes over the ideas behind that possibility.</p>

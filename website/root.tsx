@@ -10,7 +10,7 @@ import {
   renderSSR,
 } from "https://deno.land/x/nano_jsx@v0.0.36/mod.ts";
 
-import { getSharedStyleTag } from "./shared/styles.ts";
+import { getSharedStyleTag } from "./common/styles.ts";
 
 function App({ codeBlock }) {
   return (

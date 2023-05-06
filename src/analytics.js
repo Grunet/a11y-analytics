@@ -26,30 +26,35 @@ function decorateCustomEventGlobalWithAccessibilityInformation(
     // https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-reduced-motion
     resolveMediaFeatureBasedPreference({
       mediaFeature: "prefers-reduced-motion",
+      abbreviation: "prm",
       possibleValues: ["no-preference", "reduce"],
     });
 
     // https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme
     resolveMediaFeatureBasedPreference({
       mediaFeature: "prefers-color-scheme",
+      abbreviation: "pcs",
       possibleValues: ["light", "dark"],
     });
 
     // https://developer.mozilla.org/en-US/docs/Web/CSS/@media/inverted-colors - Safari only currently
     resolveMediaFeatureBasedPreference({
       mediaFeature: "inverted-colors",
+      abbreviation: "ic",
       possibleValues: ["none", "inverted"],
     });
 
     // https://developer.mozilla.org/en-US/docs/Web/CSS/@media/forced-colors
     resolveMediaFeatureBasedPreference({
       mediaFeature: "forced-colors",
+      abbreviation: "fc",
       possibleValues: ["none", "active"],
     });
 
     // https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-contrast
     resolveMediaFeatureBasedPreference({
       mediaFeature: "prefers-contrast",
+      abbreviation: "pc",
       possibleValues: ["no-preference", "more", "less", "custom"],
     });
 
@@ -80,7 +85,7 @@ function decorateCustomEventGlobalWithAccessibilityInformation(
           return;
         }
 
-        accessibilityEventParameters["uses-keyboard"] = true;
+        accessibilityEventParameters["uk"] = true; // uses-keyboard
 
         clearInterval(intervalId);
 
@@ -95,13 +100,7 @@ function decorateCustomEventGlobalWithAccessibilityInformation(
 
   // Helper functions
   function resolveMediaFeatureBasedPreference(
-    { mediaFeature, possibleValues },
-  ) {
-    captureMediaFeatureBasedPreference({ mediaFeature, possibleValues });
-  }
-
-  function captureMediaFeatureBasedPreference(
-    { mediaFeature, possibleValues },
+    { mediaFeature, abbreviation, possibleValues },
   ) {
     if (checkIfBrowserSupportsMediaFeature({ mediaFeature }) === false) {
       return;
@@ -128,7 +127,7 @@ function decorateCustomEventGlobalWithAccessibilityInformation(
       return;
     }
 
-    accessibilityEventParameters[mediaFeature] =
+    accessibilityEventParameters[abbreviation] = // Using abbreviations to free up space in the 40 character limit on parameter names for Google Analytics
       mediaQueryThatResolvedToTrue.possibleValue;
   }
 

@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.3.2
+
+- Shorten parameter prefixes so custom event names don't overflow the max length
+  for Google Analytics
+
 ## 0.3.1
 
 - Fix parameter names to adhere to custom dimension restrictions

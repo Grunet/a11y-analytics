@@ -1,8 +1,13 @@
 # Changelog
 
+## 0.3.1
+
+- Fix parameter names to adhere to custom dimension restrictions
+
 ## 0.3.0
 
-- Allow for consumers to inject callbacks that fire once all media features have been resolved and another once keyboard detection has resolved
+- Allow for consumers to inject callbacks that fire once all media features have
+  been resolved and another once keyboard detection has resolved
 
 ## 0.2.0
 

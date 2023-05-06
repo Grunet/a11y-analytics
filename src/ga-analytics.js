@@ -19,10 +19,10 @@ function decorateGtagWithAccessibilityInformation() {
 
       const disambiguatedAccessibilityEventParameters = Object.fromEntries(
         Object.entries(accessibilityEventParameters).map(([key, value]) => {
-          const newKey = `${key} [${eventName}]`.replaceAll(
+          const newKey = `${key}__${eventName}`.replaceAll(
             "-",
             "_",
-          ); // Google Analytics requires underscores instead of dashes for its custom dimensions
+          ).replaceAll(" ", "_"); // “The parameter must consist of letters, numbers, or underscores, and it must start with a letter” per the error message in the "New custom dimension" form
 
           return [
             newKey,

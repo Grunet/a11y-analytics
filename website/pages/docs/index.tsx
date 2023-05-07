@@ -179,24 +179,24 @@ const bodyContents =
   possibilities</p>
   <dl>
       <dt>fc</dt>
-      <dd>forced-colors</dd>
+      <dd>(short for forced-colors)</dd>
       <dt>ic</dt>
-      <dd>inverted-colors</dd>
+      <dd>(short for inverted-colors)</dd>
       <dt>pcs</dt>
-      <dd>prefers-color-scheme</dd>
+      <dd>(short for prefers-color-scheme)</dd>
       <dt>pc</dt>
-      <dd>prefers-contrast</dd>
+      <dd>(short for prefers-contrast)</dd>
       <dt>prm</dt>
-      <dd>prefers-reduced-motion</dd>
+      <dd>(short for prefers-reduced-motion)</dd>
       <dt>uk</dt>
-      <dd>uses-keyboard</dd>
+      <dd>(short for uses-keyboard)</dd>
   </dl>
   
   <p>These parameters can then take on different values, depending on the
   <code>accessibilityAttributeAbbreviation</code>. All of the possibilities are covered below</p>
   <dl>
       <dt>fc</dt>
-      <dd>forced-colors</dd>
+      <dd>(short for forced-colors)</dd>
       <dd>
           <ul>
               <li>active</li>
@@ -204,7 +204,7 @@ const bodyContents =
           </ul>
       </dd>
       <dt>ic</dt>
-      <dd>inverted-colors</dd>
+      <dd>(short for inverted-colors)</dd>
       <dd>
           <ul>
               <li>none</li>
@@ -212,7 +212,7 @@ const bodyContents =
           </ul>
       </dd>
       <dt>pcs</dt>
-      <dd>prefers-color-scheme</dd>
+      <dd>(short for prefers-color-scheme)</dd>
       <dd>
           <ul>
               <li>dark</li>
@@ -220,7 +220,7 @@ const bodyContents =
           </ul>
       </dd>
       <dt>pc</dt>
-      <dd>prefers-contrast</dd>
+      <dd>(short for prefers-contrast)</dd>
       <dd>
           <ul>
               <li>custom</li>
@@ -230,7 +230,7 @@ const bodyContents =
           </ul>
       </dd>
       <dt>prm</dt>
-      <dd>prefers-reduced-motion</dd>
+      <dd>(short for prefers-reduced-motion)</dd>
       <dd>
           <ul>
               <li>no-preference</li>
@@ -238,7 +238,7 @@ const bodyContents =
           </ul>
       </dd>
       <dt>uk</dt>
-      <dd>uses-keyboard</dd>
+      <dd>(short for uses-keyboard)</dd>
       <dd>
           <ul>
               <li>true</li>

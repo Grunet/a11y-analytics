@@ -13,7 +13,7 @@ import {
 import { getCommonHeadChildren } from "./../common/head.ts";
 import { getSharedStyleTag } from "./../common/styles.ts";
 
-function App({ codeBlock }) {
+function App() {
   return (
     <main>
       <h1>Analytics for Accessibility</h1>
@@ -51,7 +51,7 @@ function App({ codeBlock }) {
       </p>
       <p>
         For detailed instructions on how to set that up, visit{" "}
-        <a href="/docs/">the docs page</a>.
+        <a id="docs-link" href="/docs/">the docs page</a>.
       </p>
       <p>
         Once that's complete, you'll be able to get answers to questions like
@@ -226,10 +226,9 @@ function App({ codeBlock }) {
 
 const minifiedSnippet =
   `(()=>{function p({getGlobal:t,setGlobal:u,translateArguments:d,syncItemsCallback:s,usesKeyboardCallback:b}){let a={},i=t();u(function(...r){let c=d({originalArguments:r,accessibilityEventParameters:a});i.apply(window,c)});try{o({mediaFeature:"prefers-reduced-motion",abbreviation:"prm",possibleValues:["no-preference","reduce"]}),o({mediaFeature:"prefers-color-scheme",abbreviation:"pcs",possibleValues:["light","dark"]}),o({mediaFeature:"inverted-colors",abbreviation:"ic",possibleValues:["none","inverted"]}),o({mediaFeature:"forced-colors",abbreviation:"fc",possibleValues:["none","active"]}),o({mediaFeature:"prefers-contrast",abbreviation:"pc",possibleValues:["no-preference","more","less","custom"]}),s&&s()}catch(e){console.error(e)}(function(){try{let r=setInterval(function(){let l=document.querySelector(":focus-visible");if(!l)return;let n=l.tagName.toUpperCase();n==="INPUT"||n==="TEXTAREA"||l.contentEditable!=="true"&&(a.uk=!0,clearInterval(r),b&&b())},500)}catch(r){console.error(r)}})();function o({mediaFeature:e,abbreviation:r,possibleValues:c}){if(f({mediaFeature:e})===!1)return;let n=c.map(m=>({possibleValue:m,mediaQueryResult:window.matchMedia(\`(\${e}: \${m})\`).matches})).find(({_:m,mediaQueryResult:y})=>y===!0);if(n===void 0){console.error(\`Something went wrong. Is there a new \${e} allowed value not accounted for here?\`);return}a[r]=n.possibleValue}function f({mediaFeature:e}){return window.matchMedia(\`not all and (\${e}), (\${e})\`).matches?!0:(console.warn(\`Your browser doesn't support \${e} yet\`),!1)}}function v(){p({getGlobal:()=>window.gtag,setGlobal:t=>{window.gtag=t},translateArguments:({originalArguments:t,accessibilityEventParameters:u})=>{if(t[0]!=="event")return t;let d=t[1],s=Object.fromEntries(Object.entries(u).map(([o,f])=>[\`\${o}__\${d}\`.replaceAll("-","_").replaceAll(" ","_"),f])),a={...t[2],...s},i=[...t];return i[2]=a,i},syncItemsCallback:globalThis.a11y_analytics_config?.ga?.callbacks?.onSyncItemsResolved,usesKeyboardCallback:globalThis.a11y_analytics_config?.ga?.callbacks?.onUsesKeyboardResolved})}v();})();`;
-const codeBlock = `<script type="module">${minifiedSnippet}</script>`;
 
 function render() {
-  const app = renderSSR(<App codeBlock={codeBlock} />);
+  const app = renderSSR(<App />);
   const { body } = Helmet.SSR(app);
 
   const html = `
@@ -275,29 +274,13 @@ function render() {
           ${minifiedSnippet}
         </script>
         ${getSharedStyleTag()}
-        <style>
-            pre {
-              margin-block-start: 2rem;
-              margin-block-end: 2rem;
-            }
-
-            code {
-              padding: 0.75rem;
-              border-style: solid;
-            }
-        </style>
       </head>
       <body>
         ${body}
         <script type="module">
-          const buttonEl = document.getElementById("copyButton");
-          buttonEl.addEventListener("click", function copyButtonClickHandler() {
-            const codeSnippetContainer = document.getElementById("codeSnippet");
-            const codeSnippet = codeSnippetContainer.textContent;
-
-            navigator.clipboard.writeText(codeSnippet);
-
-            gtag('event', 'copiedToClipboard', {
+          const anchorEl = document.getElementById("docs-link");
+          anchorEl.addEventListener("click", function docsLinkClickHandler() {
+            gtag('event', 'docsLinkClicked', {
               'conversion': 'true',
             });
           });

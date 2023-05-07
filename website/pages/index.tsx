@@ -101,11 +101,15 @@ function App() {
       <p>
         By default this approach won't change how you integrate your analytics
         provider with your consent processes on a technical-level.
+      </p>
 
+      <p>
         However, depending on your situation you may need to let your users know
         that you're collecting these new pieces of information (and it's
         certainly a good idea to do in any case).
+      </p>
 
+      <p>
         For details on{" "}
         <a href="/docs/#all-possible-parameters-and-values-to-analyze">
           all the new information that the enhanced analytics could gather,

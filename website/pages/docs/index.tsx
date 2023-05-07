@@ -271,9 +271,9 @@ function render() {
       <head>
         ${
     getCommonHeadChildren({
-      title: "A Potential Future for Analytics for Accessibility",
+      title: "Docs",
       description:
-        "An outline of how analytics for accessibility could expand in measuring disabled peoples' experiences",
+        "Documentation for how to setup Analytics for Accessibility with Google Analytics and other providers",
     })
   }
         ${getSharedStyleTag()}

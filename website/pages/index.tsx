@@ -58,8 +58,8 @@ function App() {
       </p>
       <ul>
         <li>
-          Are our keyboard users finishing our checkout flow noticeably less
-          often than our non-keyboard users?
+          Are our keyboard users finishing our checkout flow at noticeably lower
+          rates than our non-keyboard users?
         </li>
         <li>
           Are our potential customers who prefer reduced motion signing up for

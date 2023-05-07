@@ -94,13 +94,13 @@ function App() {
       </p>
       <p>
         Instead, the data from this approach should only ever be viewed and
-        analyzed in the aggregate of many users' experiences to protect each individual's
-        privacy.
+        analyzed in the aggregate of many users' experiences to protect each
+        individual's privacy.
       </p>
 
       <h3>Consent Collection</h3>
       <p>
-        By default this approach won't change how you integrate your analytics
+        This approach likely won't change how you integrate your analytics
         provider with your consent processes on a technical-level.
       </p>
 

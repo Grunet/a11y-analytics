@@ -82,7 +82,7 @@ function App() {
         this case.
       </p>
 
-      <h3>Only Use Aggregate Data</h3>
+      <h3>Only Use Aggregated Data</h3>
       <p>
         There are tools out there (e.g. session replay tools) that can record in
         detail what each individual user is doing on your site.

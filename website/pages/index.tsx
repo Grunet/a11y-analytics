@@ -101,7 +101,7 @@ function App() {
       <h3>Consent Collection</h3>
       <p>
         This approach likely won't change how you integrate your analytics
-        provider with your consent processes on a technical-level.
+        provider with your consent processes on a technical level.
       </p>
 
       <p>

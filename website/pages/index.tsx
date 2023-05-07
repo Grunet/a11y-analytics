@@ -46,78 +46,35 @@ function App({ codeBlock }) {
       <h2>Enhance Your Analytics</h2>
       <p>
         By default your analytics tool probably won't give you information on
-        these segments. However, you can use a few small snippets of code to change
-        this.
+        these segments. However, you can use a few small snippets of code to
+        change this.
       </p>
-      <p>For detailed instructions on how to set that up, visit <a href="/docs/">the docs page</a>.</p>
-      <p>Once that's complete, you'll be able to get answers to questions like</p>
+      <p>
+        For detailed instructions on how to set that up, visit{" "}
+        <a href="/docs/">the docs page</a>.
+      </p>
+      <p>
+        Once that's complete, you'll be able to get answers to questions like
+      </p>
       <ul>
-        <li>Are our keyboard users finishing our checkout flow noticeably less often than our non-keyboard users?</li>
-        <li>Are our potential customers who prefer reduce motion signing up for our new product at lower rates than everyone else?</li>
-        <li>Did our latest release cause our users relying on Windows High Contrast mode to stop being able to use our app?</li>
+        <li>
+          Are our keyboard users finishing our checkout flow noticeably less
+          often than our non-keyboard users?
+        </li>
+        <li>
+          Are our potential customers who prefer reduce motion signing up for
+          our new product at lower rates than everyone else?
+        </li>
+        <li>
+          Did our latest release cause our users relying on Windows High
+          Contrast mode to stop being able to use our app?
+        </li>
       </ul>
-      <p>Positive answers to questions like these should highly correlate with poor experiences for disabled people.</p>
+      <p>
+        Positive answers to questions like these should highly correlate with
+        poor experiences for your disabled users.
+      </p>
 
-      <p>
-        For Google Analytics 4, add the following snippet to your site right
-        after the Google Analytics scripts (you can find{" "}
-        <a href="https://github.com/Grunet/a11y-analytics/blob/main/src/analytics.js">
-          an unminified version of the snippet on Github
-        </a>)
-      </p>
-      <button id="copyButton">
-        Copy the Google Analytics Code Snippet to the Clipboard
-      </button>
-      <a id="before-code-snippet" href="#after-code-snippet">
-        Skip to after the code snippet
-      </a>
-      <pre>
-            <code id="codeSnippet" tabindex="0" role="region" aria-label="Code Snippet" aria-description="for the Google Analytics Integration">
-              {codeBlock}
-            </code>
-      </pre>
-      <a id="after-code-snippet" href="#before-code-snippet">
-        Skip to before the code snippet
-      </a>
-      <p>
-        Every custom event will now have the following parameters added to them
-        (with nameOfCustomEvent replaced by the custom event's name)
-      </p>
-      <ul>
-        <li>uses_keyboard [nameOfCustomEvent]</li>
-        <li>
-          prefers_reduced_motion [nameOfCustomEvent]
-        </li>
-        <li>
-          prefers_color_scheme [nameOfCustomEvent]
-        </li>
-        <li>inverted_colors [nameOfCustomEvent]</li>
-        <li>forced_colors [nameOfCustomEvent]</li>
-        <li>
-          prefers_contrast [nameOfCustomEvent]
-        </li>
-      </ul>
-      <p>
-        You can then use these parameters to create the aforementioned segments.
-      </p>
-      <p>
-        From here it's up to you, but to get you started here are some ideas to
-        explore
-      </p>
-      <ul>
-        <li>
-          Compare conversion rates between keyboard users and non-keyboard users
-        </li>
-        <li>
-          For pages with significant animations, compare visit duration between
-          folks who prefer reduced motion vs folks who have not expressed a
-          preference
-        </li>
-        <li>
-          Compare rage click counts between folks using forced colors vs folks
-          who are not
-        </li>
-      </ul>
       <h2 id="contact-info">Contact Info</h2>
       <p>
         And let me know what you find afterwards! You can find me on any of the
@@ -304,12 +261,6 @@ function render() {
             code {
               padding: 0.75rem;
               border-style: solid;
-            }
-            
-            #before-code-snippet, #after-code-snippet {
-              display: block;
-              font-size: 0.75rem;
-              margin: 2rem;
             }
         </style>
       </head>

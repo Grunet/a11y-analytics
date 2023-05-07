@@ -75,6 +75,35 @@ function App({ codeBlock }) {
         poor experiences for your disabled users.
       </p>
 
+      <h2>Privacy Considerations</h2>
+      <p>
+        Privacy considerations have to go hand-in-hand with any change to
+        analytics. Here are some of the most important aspects to consider in
+        this case.
+      </p>
+
+      <h3>Only Use Aggregate Data</h3>
+      <p>
+        There are tools out there (e.g. session replay tools) that can record in
+        detail what each individual user is doing on your site.
+      </p>
+      <p>
+        This approach should not be paired with such tools (or any other
+        high-cardinality solutions) as it chips away at the privacy of
+        individual disabled users.
+      </p>
+      <p>
+        Instead, data should only ever be viewed and analyzed in the aggregate
+        of many users' experiences to protect their privacy.
+      </p>
+
+      <h3>Consent Collection</h3>
+      <p>
+        By default this approach won't change how you integrate your analytics
+        provider with your consent (e.g. cookie consent) processes (though your
+        code may need some small adjustments to accomodate it).
+      </p>
+
       <h2 id="contact-info">Contact Info</h2>
       <p>
         For questions, comments, or feedback, you can find me on any of the
@@ -95,9 +124,8 @@ function App({ codeBlock }) {
       </ul>
       <h2>The Future</h2>
       <p>
-        The aspects of disabled experience that can be currently captured are
-        limited in scope to what Javascript exposes. However that doesn't
-        necessarily have to be the case.
+        This approach is currently limited in scope to what can be inferred via
+        Javascript alone. However that doesn't necessarily have to be the case.
       </p>
       <p>
         <a href="/future/">
@@ -105,10 +133,10 @@ function App({ codeBlock }) {
           privacy-conscious manner is outlined in this article.
         </a>
       </p>
-      <h2>Privacy Aspects</h2>
+      <h2>Other Privacy Aspects</h2>
       <p>
-        Privacy is a critical part of any robust analytics solution. Here are
-        some considerations when it comes to Analytics for Accessibility.
+        Beyond the tool itself, there are some other aspects of privacy to
+        consider.
       </p>
 
       <h3>Privacy Aspects of this Site</h3>
@@ -127,9 +155,9 @@ function App({ codeBlock }) {
       </p>
 
       <p>
-        This site uses client-side Google Analytics 4. I tried very hard (in an
-        uphill battle) to anonymize all information sent to Google (via Google
-        Tag Manager) and documented{" "}
+        This site uses client-side Google Analytics 4. I tried very hard to
+        anonymize all information sent to Google (via Google Tag Manager) and
+        documented{" "}
         <a href="https://dev.to/grunet/how-to-maximize-user-privacy-when-using-google-analytics-4-4cd7">
           how I configured Google Analytics to be maximally privacy preserving
           in an article
@@ -185,11 +213,6 @@ function App({ codeBlock }) {
       <p>
         This site is intentionally minimalistic to avoid accidentally
         introducing issues.
-      </p>
-      <p>
-        The horizontal scrolling is intentional as I didn't want to wrap the
-        code snippet. Since it's not important to read it, I assumed this was
-        okay.
       </p>
       <p>
         If you notice anything else off{" "}

@@ -77,7 +77,8 @@ function App({ codeBlock }) {
 
       <h2 id="contact-info">Contact Info</h2>
       <p>
-        You can find me on any of the following platforms:
+        For questions, comments, or feedback, you can find me on any of the
+        following platforms:
       </p>
       <ul>
         <li>

@@ -13,7 +13,7 @@ import {
 import { getCommonHeadChildren } from "./../common/head.ts";
 import { getSharedStyleTag } from "./../common/styles.ts";
 
-function App({ codeBlock }) {
+function App() {
   return (
     <main>
       <h1>Analytics for Accessibility</h1>
@@ -46,72 +46,81 @@ function App({ codeBlock }) {
       <h2>Enhance Your Analytics</h2>
       <p>
         By default your analytics tool probably won't give you information on
-        these segments. However, you can use a small snippet of code to change
-        this.
+        these segments. However, you can use a few small snippets of code to
+        change this.
       </p>
       <p>
-        For Google Analytics 4, add the following snippet to your site right
-        after the Google Analytics scripts (you can find{" "}
-        <a href="https://github.com/Grunet/a11y-analytics/blob/main/src/analytics.js">
-          an unminified version of the snippet on Github
-        </a>)
-      </p>
-      <button id="copyButton">
-        Copy the Google Analytics Code Snippet to the Clipboard
-      </button>
-      <a id="before-code-snippet" href="#after-code-snippet">
-        Skip to after the code snippet
-      </a>
-      <pre>
-            <code id="codeSnippet" tabindex="0" role="region" aria-label="Code Snippet" aria-description="for the Google Analytics Integration">
-              {codeBlock}
-            </code>
-      </pre>
-      <a id="after-code-snippet" href="#before-code-snippet">
-        Skip to before the code snippet
-      </a>
-      <p>
-        Every custom event will now have the following parameters added to them
-        (with nameOfCustomEvent replaced by the custom event's name)
-      </p>
-      <ul>
-        <li>uses_keyboard [nameOfCustomEvent]</li>
-        <li>
-          prefers_reduced_motion [nameOfCustomEvent]
-        </li>
-        <li>
-          prefers_color_scheme [nameOfCustomEvent]
-        </li>
-        <li>inverted_colors [nameOfCustomEvent]</li>
-        <li>forced_colors [nameOfCustomEvent]</li>
-        <li>
-          prefers_contrast [nameOfCustomEvent]
-        </li>
-      </ul>
-      <p>
-        You can then use these parameters to create the aforementioned segments.
+        For detailed instructions on how to set that up, visit{" "}
+        <a id="docs-link" href="/docs/">the docs page</a>.
       </p>
       <p>
-        From here it's up to you, but to get you started here are some ideas to
-        explore
+        Once that's complete, you'll be able to get answers to questions like
       </p>
       <ul>
         <li>
-          Compare conversion rates between keyboard users and non-keyboard users
+          Are our keyboard users finishing our checkout flow at noticeably lower
+          rates than our non-keyboard users?
         </li>
         <li>
-          For pages with significant animations, compare visit duration between
-          folks who prefer reduced motion vs folks who have not expressed a
-          preference
+          Are our potential customers who prefer reduced motion signing up for
+          our new product at lower rates than everyone else?
         </li>
         <li>
-          Compare rage click counts between folks using forced colors vs folks
-          who are not
+          Did our latest release cause our users relying on Windows High
+          Contrast mode to stop being able to use our app?
         </li>
       </ul>
+      <p>
+        Positive answers to questions like these should highly correlate with
+        poor experiences for your disabled users.
+      </p>
+
+      <h2>Privacy Considerations</h2>
+      <p>
+        Privacy considerations have to go hand-in-hand with any change to
+        analytics. Here are some of the most important aspects to consider in
+        this case.
+      </p>
+
+      <h3>Only Use Aggregated Data</h3>
+      <p>
+        There are tools out there (e.g. session replay tools) that can record in
+        detail what each individual user is doing on your site.
+      </p>
+      <p>
+        This approach should not be paired with such tools (or any other
+        high-cardinality solutions) as it would chip away at the privacy of
+        individual disabled users.
+      </p>
+      <p>
+        Instead, the data from this approach should only ever be viewed and
+        analyzed in the aggregate of many users' experiences to protect each
+        individual's privacy.
+      </p>
+
+      <h3>Consent Collection</h3>
+      <p>
+        This approach likely won't change how you integrate your analytics
+        provider with your consent processes on a technical level.
+      </p>
+
+      <p>
+        However, depending on your situation you may need to let your users know
+        that you're collecting these new pieces of information (and it's
+        certainly a good idea to do in any case).
+      </p>
+
+      <p>
+        For details on{" "}
+        <a href="/docs/#all-possible-parameters-and-values-to-analyze">
+          all the new information that the enhanced analytics could gather,
+          visit this docs section
+        </a>.
+      </p>
+
       <h2 id="contact-info">Contact Info</h2>
       <p>
-        And let me know what you find afterwards! You can find me on any of the
+        For questions, comments, or feedback, you can find me on any of the
         following platforms:
       </p>
       <ul>
@@ -129,9 +138,8 @@ function App({ codeBlock }) {
       </ul>
       <h2>The Future</h2>
       <p>
-        The aspects of disabled experience that can be currently captured are
-        limited in scope to what Javascript exposes. However that doesn't
-        necessarily have to be the case.
+        This approach is currently limited in scope to what can be inferred via
+        Javascript alone. However that doesn't necessarily have to be the case.
       </p>
       <p>
         <a href="/future/">
@@ -139,10 +147,10 @@ function App({ codeBlock }) {
           privacy-conscious manner is outlined in this article.
         </a>
       </p>
-      <h2>Privacy Aspects</h2>
+      <h2>Other Privacy Aspects</h2>
       <p>
-        Privacy is a critical part of any robust analytics solution. Here are
-        some considerations when it comes to Analytics for Accessibility.
+        Beyond the tool itself, there are some other aspects of privacy to
+        consider.
       </p>
 
       <h3>Privacy Aspects of this Site</h3>
@@ -161,9 +169,9 @@ function App({ codeBlock }) {
       </p>
 
       <p>
-        This site uses client-side Google Analytics 4. I tried very hard (in an
-        uphill battle) to anonymize all information sent to Google (via Google
-        Tag Manager) and documented{" "}
+        This site uses client-side Google Analytics 4. I tried very hard to
+        anonymize all information sent to Google (via Google Tag Manager) and
+        documented{" "}
         <a href="https://dev.to/grunet/how-to-maximize-user-privacy-when-using-google-analytics-4-4cd7">
           how I configured Google Analytics to be maximally privacy preserving
           in an article
@@ -221,11 +229,6 @@ function App({ codeBlock }) {
         introducing issues.
       </p>
       <p>
-        The horizontal scrolling is intentional as I didn't want to wrap the
-        code snippet. Since it's not important to read it, I assumed this was
-        okay.
-      </p>
-      <p>
         If you notice anything else off{" "}
         <a href="#contact-info">let me know via one of the above channels</a>
         {" "}
@@ -237,10 +240,9 @@ function App({ codeBlock }) {
 
 const minifiedSnippet =
   `(()=>{function p({getGlobal:t,setGlobal:u,translateArguments:d,syncItemsCallback:s,usesKeyboardCallback:b}){let a={},i=t();u(function(...r){let c=d({originalArguments:r,accessibilityEventParameters:a});i.apply(window,c)});try{o({mediaFeature:"prefers-reduced-motion",abbreviation:"prm",possibleValues:["no-preference","reduce"]}),o({mediaFeature:"prefers-color-scheme",abbreviation:"pcs",possibleValues:["light","dark"]}),o({mediaFeature:"inverted-colors",abbreviation:"ic",possibleValues:["none","inverted"]}),o({mediaFeature:"forced-colors",abbreviation:"fc",possibleValues:["none","active"]}),o({mediaFeature:"prefers-contrast",abbreviation:"pc",possibleValues:["no-preference","more","less","custom"]}),s&&s()}catch(e){console.error(e)}(function(){try{let r=setInterval(function(){let l=document.querySelector(":focus-visible");if(!l)return;let n=l.tagName.toUpperCase();n==="INPUT"||n==="TEXTAREA"||l.contentEditable!=="true"&&(a.uk=!0,clearInterval(r),b&&b())},500)}catch(r){console.error(r)}})();function o({mediaFeature:e,abbreviation:r,possibleValues:c}){if(f({mediaFeature:e})===!1)return;let n=c.map(m=>({possibleValue:m,mediaQueryResult:window.matchMedia(\`(\${e}: \${m})\`).matches})).find(({_:m,mediaQueryResult:y})=>y===!0);if(n===void 0){console.error(\`Something went wrong. Is there a new \${e} allowed value not accounted for here?\`);return}a[r]=n.possibleValue}function f({mediaFeature:e}){return window.matchMedia(\`not all and (\${e}), (\${e})\`).matches?!0:(console.warn(\`Your browser doesn't support \${e} yet\`),!1)}}function v(){p({getGlobal:()=>window.gtag,setGlobal:t=>{window.gtag=t},translateArguments:({originalArguments:t,accessibilityEventParameters:u})=>{if(t[0]!=="event")return t;let d=t[1],s=Object.fromEntries(Object.entries(u).map(([o,f])=>[\`\${o}__\${d}\`.replaceAll("-","_").replaceAll(" ","_"),f])),a={...t[2],...s},i=[...t];return i[2]=a,i},syncItemsCallback:globalThis.a11y_analytics_config?.ga?.callbacks?.onSyncItemsResolved,usesKeyboardCallback:globalThis.a11y_analytics_config?.ga?.callbacks?.onUsesKeyboardResolved})}v();})();`;
-const codeBlock = `<script type="module">${minifiedSnippet}</script>`;
 
 function render() {
-  const app = renderSSR(<App codeBlock={codeBlock} />);
+  const app = renderSSR(<App />);
   const { body } = Helmet.SSR(app);
 
   const html = `
@@ -286,35 +288,13 @@ function render() {
           ${minifiedSnippet}
         </script>
         ${getSharedStyleTag()}
-        <style>
-            pre {
-              margin-block-start: 2rem;
-              margin-block-end: 2rem;
-            }
-
-            code {
-              padding: 0.75rem;
-              border-style: solid;
-            }
-            
-            #before-code-snippet, #after-code-snippet {
-              display: block;
-              font-size: 0.75rem;
-              margin: 2rem;
-            }
-        </style>
       </head>
       <body>
         ${body}
         <script type="module">
-          const buttonEl = document.getElementById("copyButton");
-          buttonEl.addEventListener("click", function copyButtonClickHandler() {
-            const codeSnippetContainer = document.getElementById("codeSnippet");
-            const codeSnippet = codeSnippetContainer.textContent;
-
-            navigator.clipboard.writeText(codeSnippet);
-
-            gtag('event', 'copiedToClipboard', {
+          const anchorEl = document.getElementById("docs-link");
+          anchorEl.addEventListener("click", function docsLinkClickHandler() {
+            gtag('event', 'docsLinkClicked', {
               'conversion': 'true',
             });
           });

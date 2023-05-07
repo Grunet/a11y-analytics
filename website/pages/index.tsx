@@ -94,7 +94,7 @@ function App() {
       </p>
       <p>
         Instead, the data from this approach should only ever be viewed and
-        analyzed in the aggregate of many users' experiences to protect their
+        analyzed in the aggregate of many users' experiences to protect each individual's
         privacy.
       </p>
 

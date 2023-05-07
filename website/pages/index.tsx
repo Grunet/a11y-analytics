@@ -100,8 +100,17 @@ function App() {
       <h3>Consent Collection</h3>
       <p>
         By default this approach won't change how you integrate your analytics
-        provider with your consent (e.g. cookie consent) processes (though your
-        code may need some small adjustments to accomodate it).
+        provider with your consent processes on a technical-level.
+
+        However, depending on your situation you may need to let your users know
+        that you're collecting these new pieces of information (and it's
+        certainly a good idea to do in any case).
+
+        For details on{" "}
+        <a href="/docs/#all-possible-parameters-and-values-to-analyze">
+          all the new information that the enhanced analytics could gather,
+          visit this docs section
+        </a>.
       </p>
 
       <h2 id="contact-info">Contact Info</h2>

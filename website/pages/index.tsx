@@ -46,9 +46,18 @@ function App({ codeBlock }) {
       <h2>Enhance Your Analytics</h2>
       <p>
         By default your analytics tool probably won't give you information on
-        these segments. However, you can use a small snippet of code to change
+        these segments. However, you can use a few small snippets of code to change
         this.
       </p>
+      <p>For detailed instructions on how to set that up, visit <a href="/docs/">the docs page</a>.</p>
+      <p>Once that's complete, you'll be able to get answers to questions like</p>
+      <ul>
+        <li>Are our keyboard users finishing our checkout flow noticeably less often than our non-keyboard users?</li>
+        <li>Are our potential customers who prefer reduce motion signing up for our new product at lower rates than everyone else?</li>
+        <li>Did our latest release cause our users relying on Windows High Contrast mode to stop being able to use our app?</li>
+      </ul>
+      <p>Positive answers to questions like these should highly correlate with poor experiences for disabled people.</p>
+
       <p>
         For Google Analytics 4, add the following snippet to your site right
         after the Google Analytics scripts (you can find{" "}

@@ -62,7 +62,7 @@ function App() {
           often than our non-keyboard users?
         </li>
         <li>
-          Are our potential customers who prefer reduce motion signing up for
+          Are our potential customers who prefer reduced motion signing up for
           our new product at lower rates than everyone else?
         </li>
         <li>

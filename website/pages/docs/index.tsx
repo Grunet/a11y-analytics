@@ -198,6 +198,7 @@ const bodyContents =
       <dt>fc</dt>
       <dd>(short for forced-colors)</dd>
       <dd>
+          <span>Possible Values:</span>
           <ul>
               <li>active</li>
               <li>none</li>
@@ -206,6 +207,7 @@ const bodyContents =
       <dt>ic</dt>
       <dd>(short for inverted-colors)</dd>
       <dd>
+          <span>Possible Values:</span>
           <ul>
               <li>none</li>
               <li>inverted</li>
@@ -214,6 +216,7 @@ const bodyContents =
       <dt>pcs</dt>
       <dd>(short for prefers-color-scheme)</dd>
       <dd>
+          <span>Possible Values:</span>
           <ul>
               <li>dark</li>
               <li>light</li>
@@ -222,6 +225,7 @@ const bodyContents =
       <dt>pc</dt>
       <dd>(short for prefers-contrast)</dd>
       <dd>
+          <span>Possible Values:</span>
           <ul>
               <li>custom</li>
               <li>less</li>
@@ -232,6 +236,7 @@ const bodyContents =
       <dt>prm</dt>
       <dd>(short for prefers-reduced-motion)</dd>
       <dd>
+          <span>Possible Values:</span>
           <ul>
               <li>no-preference</li>
               <li>reduce</li>
@@ -240,6 +245,7 @@ const bodyContents =
       <dt>uk</dt>
       <dd>(short for uses-keyboard)</dd>
       <dd>
+          <span>Possible Values:</span>
           <ul>
               <li>true</li>
           </ul>

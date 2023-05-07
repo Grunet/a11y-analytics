@@ -89,7 +89,7 @@ function App() {
       </p>
       <p>
         This approach should not be paired with such tools (or any other
-        high-cardinality solutions) as it chips away at the privacy of
+        high-cardinality solutions) as it would chip away at the privacy of
         individual disabled users.
       </p>
       <p>

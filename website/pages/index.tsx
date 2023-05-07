@@ -93,8 +93,9 @@ function App() {
         individual disabled users.
       </p>
       <p>
-        Instead, data should only ever be viewed and analyzed in the aggregate
-        of many users' experiences to protect their privacy.
+        Instead, the data from this approach should only ever be viewed and
+        analyzed in the aggregate of many users' experiences to protect their
+        privacy.
       </p>
 
       <h3>Consent Collection</h3>

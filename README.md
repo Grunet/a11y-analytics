@@ -126,7 +126,13 @@ still functions with Codespaces.
 
 [Deno dependencies are not yet tracked by Dependabot](https://github.com/dependabot/dependabot-core/issues/2417)
 meaning it's unlikely I'll get a notification if there's a security issue with
-them that requires an update.
+them that requires an update. The workaround is on my Github account I have a
+watch setup for security alerts for each the Github repositories of the dev
+dependencies
+
+- [Deno](https://github.com/denoland/deno/security)
+- [esbuild](https://github.com/evanw/esbuild/security)
+- [compress](https://github.com/deno-library/compress/security)
 
 #### Release Workflow
 

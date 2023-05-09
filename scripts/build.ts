@@ -43,7 +43,7 @@ async function buildOneAnalyticsSnippet({prefix}: {prefix: string}) {
     
     // This takes the minified JS and adjusts it so that it can be pasted directly into a JS string defined with backticks
     const backticksEscapedVersion = minifiedCode.replaceAll("`", "\\`").replaceAll("${","\\${");
-    await Deno.writeTextFile(`${outputDir}${prefix}-escapedForBackticks.txt`, backticksEscapedVersion);
+    await Deno.writeTextFile(`${outputDir}${prefix}-analytics-escapedForBackticks.txt`, backticksEscapedVersion);
 }
 
 async function cleanDirectory(path: string) {

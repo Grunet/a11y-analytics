@@ -24,4 +24,6 @@ jobs:
           tag_name: v${{ steps.get-version.outputs.releaseVersion }}
           files: |
             ./dist/ga-analytics.min.js
+            ./dist/ga-analytics-escapedForBackticks.txt
             ./dist/plausible-analytics.min.js
+            ./dist/plausible-analytics-escapedForBackticks.txt

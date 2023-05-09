@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.4.0
+
+- Include the versions of the snippets that work inside of backticks in
+  Javascript code in the Github Release
+
 ## 0.3.2
 
 - Shorten parameter prefixes so custom event names don't overflow the max length

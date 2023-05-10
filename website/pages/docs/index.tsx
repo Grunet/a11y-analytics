@@ -179,15 +179,15 @@ const bodyContents =
   possibilities</p>
   <dl>
       <dt>fc</dt>
-      <dd>(short for forced-colors)</dd>
+      <dd>(short for <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@media/forced-colors">forced-colors</a>)</dd>
       <dt>ic</dt>
-      <dd>(short for inverted-colors)</dd>
+      <dd>(short for <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@media/inverted-colors">inverted-colors</a>)</dd>
       <dt>pcs</dt>
-      <dd>(short for prefers-color-scheme)</dd>
+      <dd>(short for <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme">prefers-color-scheme</a>)</dd>
       <dt>pc</dt>
-      <dd>(short for prefers-contrast)</dd>
+      <dd>(short for <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-contrast">prefers-contrast</a>)</dd>
       <dt>prm</dt>
-      <dd>(short for prefers-reduced-motion)</dd>
+      <dd>(short for <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-reduced-motion">prefers-reduced-motion</a>)</dd>
       <dt>uk</dt>
       <dd>(short for uses-keyboard)</dd>
   </dl>
@@ -196,7 +196,7 @@ const bodyContents =
   <code>accessibilityAttributeAbbreviation</code>. All of the possibilities are covered below</p>
   <dl>
       <dt>fc</dt>
-      <dd>(short for forced-colors)</dd>
+      <dd>(short for <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@media/forced-colors">forced-colors</a>)</dd>
       <dd>
           <span>Possible Values:</span>
           <ul>
@@ -205,7 +205,7 @@ const bodyContents =
           </ul>
       </dd>
       <dt>ic</dt>
-      <dd>(short for inverted-colors)</dd>
+      <dd>(short for <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@media/inverted-colors">inverted-colors</a>)</dd>
       <dd>
           <span>Possible Values:</span>
           <ul>
@@ -214,7 +214,7 @@ const bodyContents =
           </ul>
       </dd>
       <dt>pcs</dt>
-      <dd>(short for prefers-color-scheme)</dd>
+      <dd>(short for <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme">prefers-color-scheme</a>)</dd>
       <dd>
           <span>Possible Values:</span>
           <ul>
@@ -223,7 +223,7 @@ const bodyContents =
           </ul>
       </dd>
       <dt>pc</dt>
-      <dd>(short for prefers-contrast)</dd>
+      <dd>(short for <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-contrast">prefers-contrast</a>)</dd>
       <dd>
           <span>Possible Values:</span>
           <ul>
@@ -234,7 +234,7 @@ const bodyContents =
           </ul>
       </dd>
       <dt>prm</dt>
-      <dd>(short for prefers-reduced-motion)</dd>
+      <dd>(short for <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-reduced-motion">prefers-reduced-motion</a>)</dd>
       <dd>
           <span>Possible Values:</span>
           <ul>

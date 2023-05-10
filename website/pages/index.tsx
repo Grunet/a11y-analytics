@@ -293,10 +293,14 @@ function render() {
         ${body}
         <script type="module">
           const anchorEl = document.getElementById("docs-link");
-          anchorEl.addEventListener("click", function docsLinkClickHandler() {
+          anchorEl.addEventListener("click", function docsLinkClickHandler(event) {
+            event.preventDefault();
+
             gtag('event', 'docsLinkClicked', {
               'conversion': 'true',
             });
+
+            window.location.href = anchorEl.href;
           });
         </script>
         <script type="module">

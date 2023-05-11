@@ -4,7 +4,7 @@ import { getSharedStyleTag } from "../../../common/styles.ts";
 const bodyContents = `
     <h1>Adjusting Analytics for Accessibility to Work with Consent Frameworks</h1>
     <p>Consent frameworks help your site or app obtain, manage, and refer to a user's consent for certain behaviors, such as using analytics.</p>
-    <p>From a user perspective, this commonly takes the form of "cookie" notices and dialogs.</p>
+    <p>From a user's perspective, this commonly takes the form of "cookie" notices and dialogs.</p>
     <p>For Analytics for Accessibility to integrate correctly into a consent framework, 1 specific part needs to be adjusted.</p>
     <h2>Delaying "Accessibility Page Load" Events Until Consent Has Been Obtained</h2>
     <p>By default, the main doc for Analytics for Accessibility recommends capturing "accessibility page load" events as soon as they resolve.</p>

@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.4.1
+
+- Fix the structure of the config object to wrap everything currently there in a level
+
 ## 0.4.0
 
 - Include the versions of the snippets that work inside of backticks in

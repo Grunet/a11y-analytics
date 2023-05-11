@@ -19,7 +19,7 @@ const bodyContents = `
             onSyncItemsResolved() {
               // gtag('event', 'syncItems page-name'); // Old code
 
-              if (checkIfUserHasAlreadyGivenConsent()) {
+              if (checkIfUserHasAlreadyGivenConsent() === true) {
                 gtag('event', 'syncItems page-name');
 
                 return;
@@ -30,7 +30,7 @@ const bodyContents = `
             onUsesKeyboardResolved() {
               // gtag('event', 'usesKeyboard page-name'); // Old code 
 
-              if (checkIfUserHasAlreadyGivenConsent()) {
+              if (checkIfUserHasAlreadyGivenConsent() === true) {
                 gtag('event', 'usesKeyboard page-name');
 
                 return;
@@ -42,10 +42,24 @@ const bodyContents = `
         }
       }
     }
-  </code></pre>
+    </code></pre>
     <p>And here is some pseudocode of what the adjustments to the consent framework would need to look like</p>
-    TODO - add in the code
-    <p>Those 2 sets of changes should be all that's needed to ensure all Analytics for Accessibility events are recorded in your analytics provider when a user provides their consent.</p>
+    <pre><code>
+    function onUserHasGivenConsent() {
+      // Lots of other code
+
+      if (getValueFromConsentInMemoryStorage("a11y_analytics_onSyncItemsResolved") === true) {
+        gtag('event', 'syncItems page-name');
+      }
+
+      if (getValueFromConsentInMemoryStorage("a11y_analytics_onUsesKeyboardResolved") === true) {
+        gtag('event', 'usesKeyboard page-name');
+      }
+      
+      // Lots of other code
+    }
+    </code></pre>
+    <p>Those 2 sets of changes should be all that's needed to ensure all Analytics for Accessibility events are recorded in your analytics provider once a user provides their consent.</p>
 `;
 
 function render() {

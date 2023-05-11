@@ -98,14 +98,16 @@ const bodyContents =
   </ol>
   <pre><code class="lang-html">&lt;script type=<span class="hljs-string">"module"</span>&gt;
     globalThis.a11y_analytics_config = {
-      ga: {
-        callbacks: {
-          onSyncItemsResolved() {
-            gtag(<span class="hljs-string">'event'</span>, <span class="hljs-string">'syncItems page-name'</span>);
-          },
-          onUsesKeyboardResolved() {
-            gtag(<span class="hljs-string">'event'</span>, <span class="hljs-string">'usesKeyboard page-name'</span>);
-          },
+      providers: {
+        ga: {
+          callbacks: {
+            onSyncItemsResolved() {
+              gtag(<span class="hljs-string">'event'</span>, <span class="hljs-string">'syncItems page-name'</span>);
+            },
+            onUsesKeyboardResolved() {
+              gtag(<span class="hljs-string">'event'</span>, <span class="hljs-string">'usesKeyboard page-name'</span>);
+            },
+          }
         }
       }
     }

@@ -30,9 +30,11 @@ function decoratePlausibleWithAccessibilityInformation() {
 
       return translatedArguments;
     },
-    syncItemsCallback: globalThis.a11y_analytics_config?.plausible?.callbacks
+    syncItemsCallback: globalThis.a11y_analytics_config?.providers?.plausible
+      ?.callbacks
       ?.onSyncItemsResolved,
-    usesKeyboardCallback: globalThis.a11y_analytics_config?.plausible?.callbacks
+    usesKeyboardCallback: globalThis.a11y_analytics_config?.providers?.plausible
+      ?.callbacks
       ?.onUsesKeyboardResolved,
   });
 }

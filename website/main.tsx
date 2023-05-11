@@ -3,6 +3,7 @@ import { serve } from "https://deno.land/std@0.140.0/http/server.ts";
 import { render as renderLandingPage } from "./pages/index.tsx";
 import { render as renderFuturePage } from "./pages/future/index.tsx";
 import { render as renderDocsPage } from "./pages/docs/index.tsx";
+import { render as renderDocsConsentPage } from "./pages/docs/consent/index.tsx";
 
 function handler(req: Request) {
   const method = req.method;
@@ -31,6 +32,16 @@ function handler(req: Request) {
 
     if (pathname === "/docs/") {
       const { html } = renderDocsPage();
+
+      return new Response(html, {
+        headers: {
+          "content-type": "text/html",
+        },
+      });
+    }
+
+    if (pathname === "/docs/consent/") {
+      const { html } = renderDocsConsentPage();
 
       return new Response(html, {
         headers: {

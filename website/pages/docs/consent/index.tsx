@@ -11,7 +11,38 @@ const bodyContents = `
     <p>However, if the user hasn't consented to the use of analytics yet this information may be discarded and lost by the analytics provider.</p>
     <p>Instead, the events need to be queued up until after consent has been obtained.</p>
     <p>Here is some pseudocode of what the adjustments to the Analytics for Accessibility configuration would need to look like</p>
-    TODO - add in the code
+    <pre><code>
+    globalThis.a11y_analytics_config = {
+      providers: {
+        ga: {
+          callbacks: {
+            onSyncItemsResolved() {
+              // gtag('event', 'syncItems page-name'); // Old code
+
+              if (checkIfUserHasAlreadyGivenConsent()) {
+                gtag('event', 'syncItems page-name');
+
+                return;
+              }
+
+              storeKeyValueInConsentInMemoryStorage("a11y_analytics_onSyncItemsResolved", true)
+            },
+            onUsesKeyboardResolved() {
+              // gtag('event', 'usesKeyboard page-name'); // Old code 
+
+              if (checkIfUserHasAlreadyGivenConsent()) {
+                gtag('event', 'usesKeyboard page-name');
+
+                return;
+              }
+
+              storeKeyValueInConsentInMemoryStorage("a11y_analytics_onUsesKeyboardResolved", true)
+            },
+          }
+        }
+      }
+    }
+  </code></pre>
     <p>And here is some pseudocode of what the adjustments to the consent framework would need to look like</p>
     TODO - add in the code
     <p>Those 2 sets of changes should be all that's needed to ensure all Analytics for Accessibility events are recorded in your analytics provider when a user provides their consent.</p>

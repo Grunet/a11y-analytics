@@ -9,6 +9,7 @@ const bodyContents =
   <li>Google Analytics 4 (not used beyond testing)</li>
   <li>Plausible (not yet fully tested)</li>
   </ul>
+  <p>If you are using a consent framework to conditionally enable your analytics, follow the instructions below and afterwards follow <a href="/docs/consent/">the guidance in this doc about integrating with your consent framework</a>.</p>
   <h2 id="setting-up-with-google-analytics-4">Setting Up With Google Analytics 4</h2>
   <p>The 2 main steps for getting setup will be</p>
   <ol>

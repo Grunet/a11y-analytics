@@ -1,5 +1,5 @@
-import { getCommonHeadChildren } from "../../common/head.ts";
-import { getSharedStyleTag } from "../../common/styles.ts";
+import { getCommonHeadChildren } from "../../../common/head.ts";
+import { getSharedStyleTag } from "../../../common/styles.ts";
 
 const bodyContents = `
     <h1>Adjusting Analytics for Accessibility to Work with Consent Frameworks</h1>

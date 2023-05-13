@@ -265,11 +265,11 @@ const bodyContents =
   based on the parameter name</li>
   <li>Wait 24 to 48 hours for Google Analytics to populate the custom dimension
   with data</li>
-  <li>In the Google Analytics console, navigate to Explore, then create a Blank exploration</li>
-  <li>Where it says Dimensions, hit the plus button closest to it, search for your custom dimension, and Import it</li>
-  <li>Where it says Rows, hit the text "Drop or select dimension" just beneath it, and select your custom dimension</li>
+  <li>In the Google Analytics console, navigate to Reports, then Engagement, then Events</li>
+  <li>In the table, follow the link with your custom event's name</li>
+  <li>In the view, find the dashboard widget with your custom dimension's name in it</li>
   </ol>
-  In the right-hand pane you should now see a table of counts of your custom dimension grouped by its possible values.
+  The widget should show counts of your custom event parameter grouped by its possible values (or a subset of them).
   <h2 id="setting-up-with-plausible">Setting Up With Plausible</h2>
   <p>TODO</p>
   `;

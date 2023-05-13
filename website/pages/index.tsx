@@ -23,8 +23,12 @@ function App() {
         experiences.
       </p>
       <p>
-        Traditionally, your disabled users have been excluded from this feedback
-        loop, primarily due to privacy concerns.
+        Traditionally, your disabled users have not been a part of this feedback
+        loop, primarily due to privacy concerns (see{" "}
+        <a href="https://karlgroves.com/can-we-track-how-many-users-with-disabilities-access-our-site/">
+          Karl Groves's article on this topic of privacy
+        </a>{" "}
+        for more details).
       </p>
       <p>
         However, there are several coarse segments you can still use, including

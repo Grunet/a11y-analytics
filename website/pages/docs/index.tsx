@@ -259,8 +259,8 @@ const bodyContents =
   <p>Follow these steps for each custom event and accessibility attribute you’re
   interested in</p>
   <ol>
-  <li>Pick a custom event name and an accessibility attribute of interest.</li>
-  <li>Determine the parameter name they correspond to (see above section).</li>
+  <li>Pick a custom event name and an accessibility attribute of interest</li>
+  <li>Determine the parameter name they correspond to (see above section)</li>
   <li><a href="https://support.google.com/analytics/answer/10075209#new-custom-dimension">Create a custom dimension</a>
   based on the parameter name</li>
   <li>Wait 24 to 48 hours for Google Analytics to populate the custom dimension

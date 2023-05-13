@@ -1,8 +1,14 @@
 # Changelog
 
+## 0.4.2
+
+- Ignore select elements in keyboard detection logic as Chrome (but not Firefox)
+  decides to match them with :focus-visible
+
 ## 0.4.1
 
-- Fix the structure of the config object to wrap everything currently there in a level
+- Fix the structure of the config object to wrap everything currently there in a
+  level
 
 ## 0.4.0
 

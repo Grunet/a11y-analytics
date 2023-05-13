@@ -265,10 +265,11 @@ const bodyContents =
   based on the parameter name</li>
   <li>Wait 24 to 48 hours for Google Analytics to populate the custom dimension
   with data</li>
+  <li>In the Google Analytics console, navigate to Explore, then create a Blank exploration</li>
+  <li>Where it says Dimensions, hit the plus button closest to it, search for your custom dimension, and Import it</li>
+  <li>Where it says Rows, hit the text "Drop or select dimension" just beneath it, and select your custom dimension</li>
   </ol>
-  <p>TODO - discuss how to see data from there (what’s the simplest way to see counts
-  for each value for the custom dimension in a certain time range? A blank
-  exploration?)</p>
+  In the right-hand pane you should now see a table of counts of your custom dimension grouped by its possible values.
   <h2 id="setting-up-with-plausible">Setting Up With Plausible</h2>
   <p>TODO</p>
   `;

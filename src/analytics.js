@@ -77,7 +77,10 @@ function decorateCustomEventGlobalWithAccessibilityInformation(
 
         // Ignore common false positives for click/touch users
         const tagNameUpperCased = focusedElement.tagName.toUpperCase();
-        if (tagNameUpperCased === "INPUT" || tagNameUpperCased === "TEXTAREA") {
+        if (
+          tagNameUpperCased === "INPUT" || tagNameUpperCased === "TEXTAREA" ||
+          tagNameUpperCased === "SELECT"
+        ) {
           return;
         }
 

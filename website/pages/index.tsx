@@ -136,6 +136,21 @@ function App() {
           <a href="https://www.reddit.com/user/__grunet">My Reddit Profile</a>
         </li>
       </ul>
+      <h2>Prior and Related Art</h2>
+      <p>
+        I was originally inspired by{" "}
+        <a href="https://blogs.intuit.com/2021/05/06/proving-accessibility-is-worth-it-with-analytics/">
+          this case study from Intuit called "Proving accessibility is worth it
+          with analytics"
+        </a>. It takes a similar mindset, though the implementation is very
+        different.
+      </p>
+      <p>
+        For more on inclusive user research more generally, check out the{" "}
+        <a href="https://github.com/Grunet/awesome-inclusive-user-research">
+          awesome-inclusive-user-research Github repository
+        </a>.
+      </p>
       <h2>The Future</h2>
       <p>
         This approach is currently limited in scope to what can be inferred via

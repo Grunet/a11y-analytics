@@ -6,7 +6,7 @@ const bodyContents =
   <p>The first step is to pick an analytics provider to integrate with. The following
   options are available</p>
   <ul>
-  <li>Google Analytics 4 (not used beyond testing)</li>
+  <li>Google Analytics 4</li>
   <li>Plausible (not yet fully tested)</li>
   </ul>
   <p>If you are using a consent framework to conditionally enable your analytics, follow the instructions below and afterwards follow <a href="/docs/consent/">the guidance in this doc about integrating with your consent framework</a>.</p>

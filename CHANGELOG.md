@@ -3,8 +3,6 @@
 ## 0.5.0
 
 - Add support for detecting if the user uses pinch zoom
-- Add support for detecting if the user uses page zoom (also known by "Ctrl
-  scroll")
 - Add support for recording the font-size of the body, which varies depending on
   a user's default font size in their browser
 

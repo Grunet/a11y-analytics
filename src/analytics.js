@@ -6,7 +6,6 @@ function decorateCustomEventGlobalWithAccessibilityInformation(
     syncItemsCallback,
     usesKeyboardCallback,
     usesPinchZoomCallback,
-    usesPageZoomCallback,
   },
 ) {
   const accessibilityEventParameters = {};
@@ -120,33 +119,12 @@ function decorateCustomEventGlobalWithAccessibilityInformation(
 
       const intervalId = setInterval(function checkForPinchZoomUsage() {
         if (window.visualViewport.scale !== initialScale) {
-          accessibilityEventParameters["upiz"] = true; // uses-pinch-zoom
+          accessibilityEventParameters["upz"] = true; // uses-pinch-zoom
 
           clearInterval(intervalId);
 
           if (usesPinchZoomCallback) {
             usesPinchZoomCallback();
-          }
-        }
-      }, 500);
-    } catch (error) {
-      console.error(error);
-    }
-  })();
-
-  // Page zoom detetion code - code resolves asynchronously
-  (function resolvePageZoomData() {
-    try {
-      const initialDevicePixelRatio = window.devicePixelRatio;
-
-      const intervalId = setInterval(function checkForPageZoomUsage() {
-        if (window.devicePixelRatio !== initialDevicePixelRatio) {
-          accessibilityEventParameters["upaz"] = true; // uses-pinch-zoom
-
-          clearInterval(intervalId);
-
-          if (usesPageZoomCallback) {
-            usesPageZoomCallback();
           }
         }
       }, 500);

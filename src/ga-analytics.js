@@ -53,9 +53,6 @@ function decorateGtagWithAccessibilityInformation() {
     usesPinchZoomCallback: globalThis.a11y_analytics_config?.providers?.ga
       ?.callbacks
       ?.onUsesPinchZoomResolved,
-    usesPageZoomCallback: globalThis.a11y_analytics_config?.providers?.ga
-      ?.callbacks
-      ?.onUsesPageZoomResolved,
   });
 }
 

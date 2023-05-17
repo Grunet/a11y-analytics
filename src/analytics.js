@@ -5,7 +5,7 @@ function decorateCustomEventGlobalWithAccessibilityInformation(
     translateArguments,
     syncItemsCallback,
     usesKeyboardCallback,
-    usesPinchZoomCallback
+    usesPinchZoomCallback,
   },
 ) {
   const accessibilityEventParameters = {};
@@ -109,7 +109,7 @@ function decorateCustomEventGlobalWithAccessibilityInformation(
 
       const intervalId = setInterval(function checkForPinchZoomUsage() {
         if (window.visualViewport.scale !== initialScale) {
-          accessibilityEventParameters["upz"] = true; // uses-pinch-zoom
+          accessibilityEventParameters["upiz"] = true; // uses-pinch-zoom
 
           clearInterval(intervalId);
 

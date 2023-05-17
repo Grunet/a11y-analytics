@@ -5,6 +5,7 @@ function decorateCustomEventGlobalWithAccessibilityInformation(
     translateArguments,
     syncItemsCallback,
     usesKeyboardCallback,
+    usesPinchZoomCallback,
   },
 ) {
   const accessibilityEventParameters = {};
@@ -23,6 +24,8 @@ function decorateCustomEventGlobalWithAccessibilityInformation(
 
   // Media Features - code resolves synchronously
   try {
+    // const startTime = performance.now();
+
     // https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-reduced-motion
     resolveMediaFeatureBasedPreference({
       mediaFeature: "prefers-reduced-motion",
@@ -57,6 +60,14 @@ function decorateCustomEventGlobalWithAccessibilityInformation(
       abbreviation: "pc",
       possibleValues: ["no-preference", "more", "less", "custom"],
     });
+
+    const fontSize = window.getComputedStyle(document.body).getPropertyValue(
+      "font-size",
+    );
+    accessibilityEventParameters["fs"] = fontSize; // font-size
+
+    // const endTime = performance.now();
+    // console.log(endTime - startTime);
 
     if (syncItemsCallback) {
       syncItemsCallback();
@@ -94,6 +105,27 @@ function decorateCustomEventGlobalWithAccessibilityInformation(
 
         if (usesKeyboardCallback) {
           usesKeyboardCallback();
+        }
+      }, 500);
+    } catch (error) {
+      console.error(error);
+    }
+  })();
+
+  // Pinch zoom detetion code - code resolves asynchronously
+  (function resolvePinchZoomData() {
+    try {
+      const initialScale = window.visualViewport.scale;
+
+      const intervalId = setInterval(function checkForPinchZoomUsage() {
+        if (window.visualViewport.scale !== initialScale) {
+          accessibilityEventParameters["upz"] = true; // uses-pinch-zoom
+
+          clearInterval(intervalId);
+
+          if (usesPinchZoomCallback) {
+            usesPinchZoomCallback();
+          }
         }
       }, 500);
     } catch (error) {

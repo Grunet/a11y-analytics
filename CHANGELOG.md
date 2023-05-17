@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.5.0
+
+- Add support for detecting if the user uses pinch zoom
+- Add support for recording the font-size of the body, which varies depending on
+  a user's default font size in their browser
+
 ## 0.4.2
 
 - Ignore select elements in keyboard detection logic as Chrome (but not Firefox)

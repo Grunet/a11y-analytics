@@ -108,6 +108,9 @@ const bodyContents =
             onUsesKeyboardResolved() {
               gtag(<span class="hljs-string">'event'</span>, <span class="hljs-string">'usesKeyboard page-name'</span>);
             },
+            onUsesPinchZoomResolved() {
+              gtag(<span class="hljs-string">'event'</span>, <span class="hljs-string">'usesPinchZoom page-name'</span>);
+            },
           }
         }
       }
@@ -134,6 +137,9 @@ const bodyContents =
           onUsesKeyboardResolved() {
             gtag(<span class="hljs-string">'event'</span>, <span class="hljs-string">'usesKeyboard page-name'</span>);
           },
+          onUsesPinchZoomResolved() {
+            gtag(<span class="hljs-string">'event'</span>, <span class="hljs-string">'usesPinchZoom page-name'</span>);
+          },
         }
       }
     }
@@ -143,19 +149,22 @@ const bodyContents =
   <ol>
   <li><p>For each page, rename <code>page-name</code> to a globally unique identifier for the
   page (e.g. <code>landing-page</code>).</p>
-  <p>Note that this is part of 2 custom event names (’syncItems page-name’ and
-  ‘usesKeyboard page-name’) so the above restrictions on custom event names
+  <p>Note that this is part of 3 custom event names (’syncItems page-name’, 
+  ‘usesKeyboard page-name’, and ‘usesPinchZoom page-name’) so the above restrictions on custom event names
   apply.</p>
   </li>
   </ol>
   <p>With that in place, the following will now automatically happen</p>
   <ul>
   <li>When one of these page loads, a Google Analytics custom event will be recorded
-  containing information on the user’s preferences captured via media features
-  (e.g. prefers-reduced-motion)</li>
+  containing information on the user’s preferences captured via CSS media features
+  (e.g. prefers-reduced-motion) and other CSS APIs</li>
   <li>After a page load, if the user starts to use the keyboard for navigation a
   Google Analytics custom event will be recorded indicating that the user is
   using the keyboard</li>
+  <li>After a page load, if the user starts to use pinch to zoom a
+  Google Analytics custom event will be recorded indicating that the user is
+  using pinch zoom</li>
   </ul>
   <h2 id="viewing-data-in-the-google-analytics-console">Viewing Data in the Google Analytics Console</h2>
   <p>Now that data should be getting reported to Google Analytics, the next step is
@@ -191,8 +200,12 @@ const bodyContents =
       <dd>(short for <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-contrast">prefers-contrast</a>)</dd>
       <dt>prm</dt>
       <dd>(short for <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-reduced-motion">prefers-reduced-motion</a>)</dd>
+      <dt>fs</dt>
+      <dd>(short for font-size)</dd>
       <dt>uk</dt>
       <dd>(short for uses-keyboard)</dd>
+      <dt>upz</dt>
+      <dd>(short for uses-pinch-zoom)</dd>
   </dl>
   
   <p>These parameters can then take on different values, depending on the
@@ -245,8 +258,24 @@ const bodyContents =
               <li>reduce</li>
           </ul>
       </dd>
+      <dt>fs</dt>
+      <dd>(short for font-size)</dd>
+      <dd>
+          <span>Possible Values:</span>
+          <ul>
+              <li>A string such as "24px" where 24 can be an arbitrary number</li>
+          </ul>
+      </dd>
       <dt>uk</dt>
       <dd>(short for uses-keyboard)</dd>
+      <dd>
+          <span>Possible Values:</span>
+          <ul>
+              <li>true</li>
+          </ul>
+      </dd>
+      <dt>upz</dt>
+      <dd>(short for uses-pinch-zoom)</dd>
       <dd>
           <span>Possible Values:</span>
           <ul>

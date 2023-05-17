@@ -50,6 +50,9 @@ function decorateGtagWithAccessibilityInformation() {
     usesKeyboardCallback: globalThis.a11y_analytics_config?.providers?.ga
       ?.callbacks
       ?.onUsesKeyboardResolved,
+    usesPinchZoomCallback: globalThis.a11y_analytics_config?.providers?.ga
+      ?.callbacks
+      ?.onUsesPinchZoomResolved,
   });
 }
 

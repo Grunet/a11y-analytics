@@ -38,6 +38,17 @@ const bodyContents = `
 
               storeKeyValueInConsentInMemoryStorage("a11y_analytics_onUsesKeyboardResolved", true)
             },
+            onUsesPinchZoomResolved() {
+              // gtag('event', 'usesPinchZoom page-name'); // Old code 
+
+              if (checkIfUserHasAlreadyGivenConsent() === true) {
+                gtag('event', 'usesPinchZoom page-name');
+
+                return;
+              }
+
+              storeKeyValueInConsentInMemoryStorage("a11y_analytics_onUsesPinchZoomResolved", true)
+            },
           }
         }
       }
@@ -54,6 +65,10 @@ const bodyContents = `
 
       if (getValueFromConsentInMemoryStorage("a11y_analytics_onUsesKeyboardResolved") === true) {
         gtag('event', 'usesKeyboard page-name');
+      }
+
+      if (getValueFromConsentInMemoryStorage("a11y_analytics_onUsesPinchZoomResolved") === true) {
+        gtag('event', 'usesPinchZoom page-name');
       }
       
       // Lots of other code

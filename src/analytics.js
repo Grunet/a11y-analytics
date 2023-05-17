@@ -25,7 +25,7 @@ function decorateCustomEventGlobalWithAccessibilityInformation(
 
   // Media Features - code resolves synchronously
   try {
-    const start = performance.now();
+    // const startTime = performance.now();
 
     // https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-reduced-motion
     resolveMediaFeatureBasedPreference({
@@ -67,7 +67,8 @@ function decorateCustomEventGlobalWithAccessibilityInformation(
     );
     accessibilityEventParameters["fs"] = fontSize; // font-size
 
-    console.log(performance.now() - start);
+    // const endTime = performance.now();
+    // console.log(endTime - startTime);
 
     if (syncItemsCallback) {
       syncItemsCallback();

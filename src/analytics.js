@@ -60,6 +60,11 @@ function decorateCustomEventGlobalWithAccessibilityInformation(
       possibleValues: ["no-preference", "more", "less", "custom"],
     });
 
+    const fontSize = window.getComputedStyle(document.body).getPropertyValue(
+      "font-size",
+    );
+    accessibilityEventParameters["fs"] = fontSize; // font-size
+
     if (syncItemsCallback) {
       syncItemsCallback();
     }

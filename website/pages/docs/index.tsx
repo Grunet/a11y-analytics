@@ -157,8 +157,8 @@ const bodyContents =
   <p>With that in place, the following will now automatically happen</p>
   <ul>
   <li>When one of these page loads, a Google Analytics custom event will be recorded
-  containing information on the user’s preferences captured via media features
-  (e.g. prefers-reduced-motion) and other CSS</li>
+  containing information on the user’s preferences captured via CSS media features
+  (e.g. prefers-reduced-motion) and other CSS APIs</li>
   <li>After a page load, if the user starts to use the keyboard for navigation a
   Google Analytics custom event will be recorded indicating that the user is
   using the keyboard</li>

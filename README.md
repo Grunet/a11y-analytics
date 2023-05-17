@@ -32,7 +32,7 @@ The snippet should always be inserted as follows
 The initial synchronous work done by the snippet takes approximately 10 plus or
 minus 3 milliseconds, roughly.
 
-The snippet itself currently weighs in at approximately 2.7 kilobytes
+The snippet itself currently weighs in at approximately 2.8 kilobytes
 (approximately 1.1 kilobytes when compressed with gzip)
 
 ## Build Pipeline

@@ -4,11 +4,15 @@ See https://a11y-analytics.deno.dev/ for more information
 
 ## Status of Semantic Versioning
 
-I don't yet feel confident I understand what the API surface of this should be in all cases, so it seems misleading to publish a 1.0 and semantically version it.
+I don't yet feel confident I understand what the API surface of this should be
+in all cases, so it seems misleading to publish a 1.0 and semantically version
+it.
 
-Given that, this won't be semantically versioned until I reach that level of confidence.
+Given that, this won't be semantically versioned until I reach that level of
+confidence.
 
-However, I will attempt to make sure breaking changes are called out in CHANGELOG.md from this point forward.
+However, I will attempt to make sure breaking changes are called out in
+CHANGELOG.md from this point forward.
 
 ## Supported Analytics Providers
 
@@ -28,7 +32,7 @@ The snippet should always be inserted as follows
 The initial synchronous work done by the snippet takes approximately 10 plus or
 minus 3 milliseconds, roughly.
 
-The snippet itself currently weighs in at approximately 2.4 kilobytes
+The snippet itself currently weighs in at approximately 2.7 kilobytes
 (approximately 1.1 kilobytes when compressed with gzip)
 
 ## Build Pipeline

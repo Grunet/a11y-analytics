@@ -40,6 +40,10 @@ function decoratePlausibleWithAccessibilityInformation() {
       ?.plausible
       ?.callbacks
       ?.onUsesPinchZoomResolved,
+    usesPageZoomCallback: globalThis.a11y_analytics_config?.providers
+      ?.plausible
+      ?.callbacks
+      ?.onUsesPageZoomResolved,
   });
 }
 

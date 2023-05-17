@@ -5,6 +5,7 @@ function decorateCustomEventGlobalWithAccessibilityInformation(
     translateArguments,
     syncItemsCallback,
     usesKeyboardCallback,
+    usesPinchZoomCallback
   },
 ) {
   const accessibilityEventParameters = {};
@@ -94,6 +95,27 @@ function decorateCustomEventGlobalWithAccessibilityInformation(
 
         if (usesKeyboardCallback) {
           usesKeyboardCallback();
+        }
+      }, 500);
+    } catch (error) {
+      console.error(error);
+    }
+  })();
+
+  // Pinch zoom detetion code - code resolves asynchronously
+  (function resolvePinchZoomData() {
+    try {
+      const initialScale = window.visualViewport.scale;
+
+      const intervalId = setInterval(function checkForPinchZoomUsage() {
+        if (window.visualViewport.scale !== initialScale) {
+          accessibilityEventParameters["upz"] = true; // uses-pinch-zoom
+
+          clearInterval(intervalId);
+
+          if (usesPinchZoomCallback) {
+            usesPinchZoomCallback();
+          }
         }
       }, 500);
     } catch (error) {

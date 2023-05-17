@@ -36,6 +36,10 @@ function decoratePlausibleWithAccessibilityInformation() {
     usesKeyboardCallback: globalThis.a11y_analytics_config?.providers?.plausible
       ?.callbacks
       ?.onUsesKeyboardResolved,
+    usesPinchZoomCallback: globalThis.a11y_analytics_config?.providers
+      ?.plausible
+      ?.callbacks
+      ?.onUsesPinchZoomResolved,
   });
 }
 

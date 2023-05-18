@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.6.0
+
+- Factor out the information detection logic so anyone can use it (e.g. for 1st
+  party custom analytics)
+
 ## 0.5.0
 
 - Add support for detecting if the user uses pinch zoom

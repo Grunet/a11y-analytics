@@ -25,8 +25,8 @@ function decorateCustomEventGlobalWithAccessibilityInformation(
       },
     );
 
-    setupAccessibilityInformationDetector(
-      function resolutionCallback({ eventType, source, data }) {
+    setupAccessibilityInformationDetector({
+      onResolutionCallback({ eventType, source, data }) {
         if (eventType === "data") {
           Object.assign(accessibilityEventParameters, data);
         }
@@ -53,7 +53,7 @@ function decorateCustomEventGlobalWithAccessibilityInformation(
           }
         }
       },
-    );
+    });
   } catch (error) {
     console.error(error);
   }
